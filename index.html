@@ -1,305 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saim Shakeel - Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Saim Shakeel | Python Backend & Android Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Background Image/Video Container -->
+    <div class="background-container">
+        <!-- Background video that blends into the design -->
+        <video autoplay muted loop playsinline class="background-video">
+            <!-- <source src="res/background-ambience.mp4" type="video/mp4"> -->
+            <source src="res/wojak-bg.mp4" type="video/mp4">
+        </video>
+        <!-- Or background image with texture -->
+        <img src="res/background-texture.jpg" alt="" class="background-image" style="display: none;">
+    </div>
+
+    <div class="cursor-follower"></div>
+
     <!-- Navigation -->
-    <nav>
+    <nav class="main-nav">
         <div class="nav-container">
-            <div class="logo">Saim Shakeel</div>
-            <ul class="nav-links">
-                <!-- <li><a href="#home">Home</a></li> -->
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#volunteer">Volunteer</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="#" class="logo">Saim Shakeel</a>
+            <div class="nav-links">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="menu-toggle">Menu</button>
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <!-- <section id="home" class="hero">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
         <div class="hero-content">
-            <h1>Saim Shakeel</h1>
-            <h2>Software Developer</h2>
-            <p>Passionate about algorithms, Android, and web development</p>
-            <a href="#contact" class="cta-button">Get in Touch</a>
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Building robust</span>
+                    <span class="title-line accent">backend systems</span>
+                    <span class="title-line">and Android apps</span>
+                </h1>
+                <p class="hero-subtitle">
+                    I develop scalable Python backend solutions and feature-rich Android applications with Kotlin that power modern digital experiences.
+                </p>
+                <div class="hero-cta">
+                    <a href="#work" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="res/hero-visual.jpg" alt="Portfolio overview" class="hero-visual">
+                    <div class="floating-element element-1"></div>
+                    <div class="floating-element element-2"></div>
+                </div>
+            </div>
         </div>
-    </section> -->
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work-section">
+        <div class="section-header">
+            <h2>Selected <span class="accent">Work</span></h2>
+            <p>Explore my latest backend and Android projects</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card featured">
+                <div class="project-image-container">
+                    <div class="project-background-media" style="background-image: url('res/project1-bg.jpg');">
+                        <div class="media-overlay"></div>
+                    </div>
+                    <div class="project-visual-content">
+                        <img src="res/project1-visual.png" alt="E-commerce Backend API" class="project-visual">
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Backend Project</span>
+                    <h3>E-commerce Backend API</h3>
+                    <p>Built a scalable RESTful API using Django and PostgreSQL for an e-commerce platform handling 10K+ daily transactions.</p>
+                    <a href="#" class="project-link">View Case Study</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-container">
+                    <div class="project-background-media" style="background-image: url('res/project2-bg.jpg');">
+                        <div class="media-overlay"></div>
+                    </div>
+                    <div class="project-visual-content">
+                        <img src="res/project2-visual.png" alt="Fitness Mobile App" class="project-visual">
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Android App</span>
+                    <h3>Fitness Mobile App</h3>
+                    <p>Developed a comprehensive fitness application with Kotlin and Jetpack Compose, featuring workout tracking and progress analytics.</p>
+                    <a href="#" class="project-link">View Case Study</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-container">
+                    <div class="project-background-media" style="background-image: url('res/project3-bg.jpg');">
+                        <div class="media-overlay"></div>
+                    </div>
+                    <div class="project-visual-content">
+                        <img src="res/project3-visual.png" alt="Task Management API" class="project-visual">
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Backend Project</span>
+                    <h3>Task Management API</h3>
+                    <p>Created a FastAPI-based task management system with user authentication, real-time notifications, and analytics dashboard.</p>
+                    <a href="#" class="project-link">View Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="assets/images/profile.jpg" alt="Saim Shakeel" class="profile-pic">
-                </div>
-                <div class="about-text">
-                    <p>Enthusiastic software developer with a solid foundation in Java, PHP, Python, Kotlin, and SQL,
-                        and extensive experience using GitHub as a version control system. I have significant expertise
-                        in Android development, utilizing both Java and Kotlin with XML. Currently, I am developing a
-                        web application and have a strong fascination with algorithms, as they form the core of all
-                        computational functions. I have also explored the theoretical aspects of machine learning and
-                        continue to deepen my understanding of these technologies. Passionate about contributing my
-                        skills and knowledge in a collaborative and innovative environment.</p>
-                    <p>I enjoy solving complex problems and creating user-friendly applications. My goal is to leverage
-                        my skills in algorithms and development to build impactful solutions.</p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Years of Study</span>
-                        </div>
-                        <!-- <div class="stat-item">
-                            <span class="stat-number">3</span>
-                            <span class="stat-label">Projects Built</span>
-                        </div> -->
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Technologies</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <h2>About <span class="accent">Me</span></h2>
+            <p>My journey, skills, and approach to backend and Android development</p>
         </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3>Competitive Programming Intern</h3>
-                    <h4>Computer Science Society</h4>
-                    <p class="date">March 2023 - May 2023</p>
-                    <ul>
-                        <li>Worked on algorithmic challenges, enhancing skills in data structures, dynamic programming,
-                            and graph theory.</li>
-                        <li>Developed solutions for competitive programming problems using Java.</li>
-                        <li>Collaborated with peers to optimize solutions and reduce execution time.</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Android Development Intern</h3>
-                    <h4>Computer Science Society</h4>
-                    <p class="date">June 2021 - July 2021</p>
-                    <ul>
-                        <li>Developed skills in Android development using Java, XML, Android Studio, and Firebase under
-                            senior guidance.</li>
-                        <li>Built various Android applications from basic concepts to functional prototypes.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Building scalable solutions with Python & Kotlin</h3>
+                <p>
+                    With over 7 years of experience in software development, I specialize in creating robust backend systems
+                    with Python technologies and developing high-quality Android applications using Kotlin. My approach combines
+                    strategic thinking with technical excellence to deliver reliable, scalable solutions.
+                </p>
+                <p>
+                    I'm passionate about architecting efficient APIs, implementing complex business logic, and creating
+                    seamless mobile experiences. My work spans various industries, focusing on performance, security,
+                    and maintainability.
+                </p>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>Java</li>
-                        <li>PHP</li>
-                        <li>Python</li>
-                        <li>Kotlin</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Database & VCS</h3>
-                    <ul>
-                        <li>MySQL</li>
-                        <li>Git/GitHub</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools & Soft Skills</h3>
-                    <ul>
-                        <li>Word, Excel, PowerPoint</li>
-                        <li>Teamwork</li>
-                        <li>Communication</li>
-                        <li>Problem-solving</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Development</h3>
-                    <ul>
-                        <li>Web Development</li>
-                        <li>Android Development</li>
-                        <li>AI Model Development</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <img src="assets/images/project2.png" alt="Prioritizer">
-                    <div class="project-content">
-                        <h3>Next-Word Prediction Explorer</h3>
-                        <p>• Built a Flask-based web app for real-time text prediction using NLP models (e.g., OpenAI
-                            API), showcasing Python
-                            and ML expertise.
-                            • Deployed on Render, resolving dependency and JSON parsing issues for scalable performance.
-                            • Designed interactive web interface with HTML/CSS/JavaScript, enhancing user experience.
-                            • Integrated secure API key management with python-dotenv, ensuring robust deployment.</p>
-                        <div class="project-links">
-                            <a href="https://prediction-analysis.onrender.com/" class="button" target="_blank">View
-                                Project</a>
-                            <a href="https://github.com/saim963/Prediction-Analysis" class="button secondary"
-                                target="_blank">Demo</a>
-                        </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Backend</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>Flask</li>
+                            <li>FastAPI</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="project-card">
-                    <img src="assets/images/project3.png" alt="AMU Remuneration System">
-                    <div class="project-content">
-                        <h3>AMU Remuneration System</h3>
-                        <p>• Developed a PHP-based web app to manage task-based remuneration (e.g., invigilation,
-                            copy-checking) for
-                            approximately 1,400 academic staff, using MySQL for robust data handling.
-                            • Automated PDF generation with FPDF for 1000+ monthly payment reports, cutting verification
-                            time by 50%.
-                            • Ensured 100% data accuracy for 1000+ task records, supporting seamless financial tracking
-                            and compliance.</p>
-                        <div class="project-links">
-                            <a href="http://hostings.live/" class="button" target="_blank">View Project</a>
-                            <a href="https://github.com/saim963/Remuneration-System" class="button secondary"
-                                target="_blank">Demo</a>
-                        </div>
+                    <div class="skill-category">
+                        <h4>Mobile</h4>
+                        <ul>
+                            <li>Kotlin</li>
+                            <li>Android Development</li>
+                            <li>Jetpack Compose</li>
+                            <li>Room Database</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certifications-grid">
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-content">
-                        <h3>Introduction to Research Practices</h3>
-                        <p class="certification-issuer">Dep. of Computer Science, AMU</p>
-                        <p class="certification-date">Issued: 2023</p>
-                        <!-- <p class="certification-id">Credential ID: N/A</p> -->
-                        <a href="assets/certificates/ResearchPractices.png" class="button small" target="_blank">View
-                            Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-content">
-                        <h3>GDSC Android Development Lead</h3>
-                        <p class="certification-issuer">Google Developer Students Club</p>
-                        <p class="certification-date">Issued: 2024</p>
-                        <a href="assets/certificates/GdscAndroidLead.jpg" class="button small" target="_blank">View
-                            Certificate</a>
-                    </div>
-                </div>
-
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-content">
-                        <h3>Internship on competitive Programming </Pre>
-                        </h3>
-                        <p class="certification-issuer">Computer Science Society AMU</p>
-                        <p class="certification-date">Issued: 2022</p>
-                        <a href="assets/certificates/CompetitiveProgrammingInternship.jpg" class="button small"
-                            target="_blank">View Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-content">
-                        <h3>Android Development Intern</Pre>
-                        </h3>
-                        <p class="certification-issuer">Computer Science Society AMU</p>
-                        <p class="certification-date">Issued: 2021</p>
-                        <a href="assets/certificates/AndroidIntern.png" class="button small" target="_blank">View
-                            Certificate</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteer Section -->
-    <section id="volunteer" class="section">
-        <div class="container">
-            <h2 class="section-title">Volunteer Work</h2>
-            <div class="volunteer-grid">
-                <div class="volunteer-card">
-                    <div class="volunteer-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <div class="volunteer-content">
-                        <h3>Android Lead</h3>
-                        <h4>Google Development Students Club</h4>
-                        <p class="volunteer-date">August 2023 - August 2024</p>
-                        <ul class="volunteer-details">
-                            <li>Led the Android development division, organizing events to promote Android technology
-                                and skill development among students.</li>
-                            <li>Worked in a team to manage and organize events.</li>
-                            <li>Introduced Android development to new students.</li>
+                    <div class="skill-category">
+                        <h4>DevOps & Tools</h4>
+                        <ul>
+                            <li>RESTful APIs</li>
+                            <li>PostgreSQL</li>
+                            <li>Docker</li>
+                            <li>CI/CD</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Publications Section -->
-    <section id="publications" class="section">
-        <div class="container">
-            <h2 class="section-title">Publications</h2>
-            <div class="publications-grid">
-                <div class="publication-card">
-                    <div class="publication-icon">
-                        <i class="fas fa-book"></i>
+            <div class="about-visual">
+                <div class="process-diagram-container">
+                    <div class="process-background-media" style="background-image: url('res/process-bg.jpg');">
+                        <div class="media-overlay"></div>
                     </div>
-                    <div class="publication-content">
-                        <h3>Direct Speech to Speech Translation: A Review</h3>
-                        <p class="publication-journal">arXiv</p>
-                        <p class="publication-date">Submitted on 3 Mar 2025</p>
-                        <p class="publication-abstract">
-                            A in depth review of work done on Direct Speech to Speech Translation (Direct S2ST) models
-                            and their applications.
-                        </p>
-                        <div class="publication-links">
-                            <a href="https://arxiv.org/abs/2503.04799" class="button small" target="_blank">Read
-                                Paper</a>
-                            <a href="https://arxiv.org/abs/2503.04799" class="button small secondary"
-                                target="_blank">DOI Link</a>
+                    <div class="process-diagram-content">
+                        <div class="process-diagram">
+                            <div class="process-step">
+                                <div class="step-number">01</div>
+                                <h4>Research</h4>
+                                <p>Understanding needs, goals, and constraints</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">02</div>
+                                <h4>Design</h4>
+                                <p>Creating concepts and iterating solutions</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">03</div>
+                                <h4>Build</h4>
+                                <p>Developing and implementing the solution</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">04</div>
+                                <h4>Refine</h4>
+                                <p>Testing, iterating, and perfecting</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -308,48 +212,95 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>aims3328@gmail.com</span>
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>Get in <span class="accent">Touch</span></h2>
+            <p>Need a reliable engineer on your team? Let's connect.</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-info-container">
+                    <div class="contact-background-media" style="background-image: url('res/contact-bg.jpg');">
+                        <div class="media-overlay"></div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 9536944109</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>India</span>
+                    <div class="contact-info-content">
+                        <h3>Let's create something amazing together</h3>
+                        <p>
+                            I'm always interested in new opportunities and exciting projects.
+                            Reach out and let's discuss how we can bring your vision to life.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <h4>Email</h4>
+                                <a href="mailto:aims3328@gmail.com">aims3328@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <h4>Location</h4>
+                                <p>UP, IND</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>Social</h4>
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/saim-shakeel/" aria-label="LinkedIn" target="_blank"
+                                    rel="noopener noreferrer" >LinkedIn</a>
+                                    <a href="https://github.com/saim963" aria-label="GitHub"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >GitHub</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" required></textarea>
-                    <button type="submit" class="button">Send Message</button>
-                </form>
+            </div>
+
+            <div class="contact-form-container">
+                <div class="form-background-media" style="background-image: url('res/form-bg.jpg');">
+                    <div class="media-overlay"></div>
+                </div>
+                <div class="form-content">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="social-links">
-                    <a href="https://github.com/saim963" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/saim-shakeel/" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <p class="footer-content">© 2025 Saim Shakeel. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <a href="#" class="logo">Saim Shakeel</a>
+                <p>Building scalable backend systems and Android applications</p>
+            </div>
+            <div class="footer-links">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-credit">
+                <p>© 2025. All rights reserved.</p>
             </div>
         </div>
     </footer>
-</body>
 
+    <script src="script.js"></script>
+</body>
 </html>
