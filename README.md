@@ -11,6 +11,7 @@ A modern, sophisticated portfolio website with a focus on aesthetics, performanc
 - **Accessibility Focused**: WCAG compliant with reduced motion support
 - **Customizable**: Easy to customize colors, fonts, and content
 - **Background-Integrated Media**: Images and videos that merge seamlessly with design
+- **Reference Links**: A curated section for useful development resources and project references.
 - **Enhanced Visual Depth**: Multi-layered visual effects with proper content legibility
 - **Content-Friendly Overlays**: Ensuring text remains readable over media backgrounds
 
@@ -61,7 +62,12 @@ portfolio/
 - Hover effects with elevation
 - Featured project option
 - Responsive grid layout
-
+ 
+### Reference Links
+- Categorized link cards for resources
+- Clean grid layout with fade-in animations
+- External link support with security best practices
+ 
 ### About Section
 - Skills grid with category breakdown
 - Process diagram with hover effects
