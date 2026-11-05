@@ -1,194 +1,60 @@
-# Premium Portfolio Design System
+# Soviet Architecture & Constructivist Design System
 
-## Color Palette
+## Palette Specification
+The color scheme is directly extracted from Soviet Modernism, monumental precast concrete architecture (*béton brut*), weathered masonry, and constructivist terracotta brick.
 
-### Primary Colors
-- **Primary**: `#8A2BE2` (Vibrant Purple) - Used for primary actions and highlights
-- **Primary Dark**: `#6A1B9A` - Used for hover states and depth
-- **Secondary**: `#00D4FF` (Bright Cyan) - Used for accents and secondary highlights
-- **Secondary Dark**: `#00A0C4` - Used for hover states
-- **Accent**: `#FF6B6B` (Coral) - Used for notifications and important elements
+### Core User Palette
+- **Slate Grey**: `#7A828A` — Structural steel, panel joints, dividers, blueprint annotations, rebar guide lines.
+- **Cloudy Grey**: `#A3AAAE` — Precast facade borders, secondary typography, architectural calibration ticks.
+- **Dusty Concrete**: `#C2C7C5` — Primary body copy, light panel surfaces, architectural wireframe highlights.
+- **Muted Khaki**: `#9C8E85` — Weathered stone, technical serial numbers, metadata callouts, warm concrete accents.
+- **Faded Terracotta**: `#8A6552` — Constructivist red-terracotta focal accents, active states, stamp seals, status indicators, buttons, load-bearing stress nodes.
 
-### Neutrals
-- **Dark**: `#0F172A` - Primary background
-- **Darker**: `#0A0E1A` - Deeper background
-- **Light**: `#F8FAFC` - Light text
-- **Lighter**: `#FFFFFF` - White text
-- **Gray**: `#94A3B8` - Secondary text
-- **Gray Dark**: `#64748B` - Tertiary text
+### Structural Grounding Neutrals
+- **Void / Deep Asphalt**: `#131518` — Primary viewport background.
+- **Monolith Foundation**: `#1a1d21` — Structural base plinth.
+- **Precast Panel**: `#21252b` — Card and module background.
+- **Elevated Plinth**: `#292f36` — Hover states and elevated cards.
+- **Crisp Monolith White**: `#edf0ef` — Stark high-contrast headings and callouts.
 
-### Semantic Colors
-- **Success**: `#4ECDC4` - For success messages
-- **Error**: `#FF6B6B` - For error messages
-- **Warning**: `#FFB347` - For warnings
+---
 
-## Typography System
+## Typography Hierarchy
 
 ### Font Families
-- **Headings**: `Space Grotesk` - Bold geometric sans-serif for headings
-- **Body**: `Inter` - Highly readable sans-serif for body text
-- **Code**: `JetBrains Mono` - For code snippets and technical text
+- **Display & Headings**: `Oswald` (Google Fonts: 400, 500, 600, 700) — Monumental, condensed, geometric architectural sans-serif with stark verticality.
+- **Technical & Coordinates**: `Space Mono` (Google Fonts: 400, 700) — Engineering drafting font for technical serials, blueprint coordinates, Cyrillic-inspired architectural tags.
+- **Body & Prose**: `Inter` (Google Fonts: 300, 400, 500, 600) — Clean, legible structural grotesque for paragraphs and case studies.
 
-### Hierarchy
-```
-h1: font-size: 4rem, font-weight: 800
-h2: font-size: 2.5rem, font-weight: 700
-h3: font-size: 1.75rem, font-weight: 700
-h4: font-size: 1.25rem, font-weight: 600
-Body: font-size: 1.1rem, font-weight: 400
-Small: font-size: 0.9rem, font-weight: 400
-```
+### Scale & Letter-Spacing
+- `h1`: `clamp(2.6rem, 5.5vw, 4.2rem)`, `font-weight: 700`, `letter-spacing: 0.02em`, uppercase.
+- `h2`: `clamp(2.2rem, 4.2vw, 3.2rem)`, `font-weight: 700`, `letter-spacing: 0.04em`, uppercase.
+- `h3`: `clamp(1.4rem, 2.5vw, 1.9rem)`, `font-weight: 700`, `letter-spacing: 0.03em`, uppercase.
+- `h4`: `1.15rem`, `font-weight: 600`, `letter-spacing: 0.03em`, uppercase.
+- `mono`: `0.65rem – 0.72rem`, `letter-spacing: 0.14em – 0.18em`, uppercase.
+- `body`: `0.95rem – 1.05rem`, `line-height: 1.7 – 1.75`.
 
-### Line Heights & Letter Spacing
-- **Headings**: `line-height: 1.2`, `letter-spacing: -0.02em`
-- **Body**: `line-height: 1.6`, `letter-spacing: 0`
+---
 
-## Spacing System
+## Architectural Component Language
 
-### Base Unit
-- **1 unit** = `1rem` = `16px`
+### 1. Monolithic Precast Panels (Cards)
+- Chamfered corner cuts: `clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)`.
+- Structural joints: `border: 1px solid var(--slate-grey)`.
+- Hard architectural drop shadows: `3px 3px 0 #0d0f11` shifting to `4px 4px 0 var(--faded-terracotta)` on hover.
+- Classification stamps: `[ СЕКЦИЯ 01 // ARCH-01 ]`.
 
-### Spacing Scale
-- `0.25`: `0.25rem` (4px)
-- `0.5`: `0.5rem` (8px)
-- `0.75`: `0.75rem` (12px)
-- `1`: `1rem` (16px)
-- `1.25`: `1.25rem` (20px)
-- `1.5`: `1.5rem` (24px)
-- `2`: `2rem` (32px)
-- `2.5`: `2.5rem` (40px)
-- `3`: `3rem` (48px)
-- `4`: `4rem` (64px)
-- `5`: `5rem` (80px)
-- `6`: `6rem` (96px)
-- `8`: `8rem` (128px)
-- `10`: `10rem` (160px)
-- `12`: `12rem` (192px)
+### 2. Monumental Brutalist Buttons
+- **Primary**: Background in Faded Terracotta (`#8A6552`), text in Dusty Concrete (`#edf0ef`), chamfered top-right cut, solid mechanical offset hover `transform: translate(-2px, -2px)`.
+- **Secondary**: Precast panel background (`#21252b`), border in Slate Grey (`#7A828A`), text in Dusty Concrete.
 
-## Component Specifications
+### 3. Drafting Reticle Cursor
+- Circular drafting gauge with 4 perpendicular calibration ticks in `#8A6552`.
+- Center point indicator dot in Faded Terracotta.
+- Expanding precision reticle on hoverable interactives.
 
-### Buttons
-#### Primary Button
-- Background: `var(--primary)`
-- Text: `white`
-- Border-radius: `6px`
-- Padding: `0.9rem 2rem`
-- Font-family: `Space Grotesk`
-- Font-weight: `600`
-- Box-shadow: `0 4px 6px rgba(138, 43, 226, 0.3)`
-- Hover: Background `var(--primary-dark)`, transform `translateY(-3px)`
-
-#### Secondary Button
-- Background: `transparent`
-- Text: `var(--light)`
-- Border: `1px solid var(--gray)`
-- Border-radius: `6px`
-- Padding: `0.9rem 2rem`
-- Font-family: `Space Grotesk`
-- Font-weight: `600`
-- Hover: `border-color: var(--primary), color: var(--primary)`
-
-### Cards
-- Background: `rgba(255, 255, 255, 0.03)`
-- Border: `1px solid rgba(255, 255, 255, 0.1)`
-- Border-radius: `12px`
-- Overflow: `hidden`
-- Transition: `all 0.4s cubic-bezier(0.16, 1, 0.3, 1)`
-
-### Inputs
-- Background: `rgba(255, 255, 255, 0.05)`
-- Border: `1px solid rgba(255, 255, 255, 0.1)`
-- Border-radius: `6px`
-- Padding: `0.9rem 1.2rem`
-- Color: `var(--light)`
-- Font-family: `Inter`
-- Focus: `border-color: var(--primary)`, `box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2)`
-
-## Shadows
-- **Shadow 1**: `0 4px 6px rgba(0, 0, 0, 0.07)`
-- **Shadow 2**: `0 10px 15px rgba(0, 0, 0, 0.1)`
-- **Shadow 3**: `0 20px 25px rgba(0, 0, 0, 0.15)`
-- **Shadow 4**: `0 25px 50px rgba(0, 0, 0, 0.25)`
-
-## Transitions & Animations
-
-### Easing
-- **Default**: `cubic-bezier(0.16, 1, 0.3, 1)`
-- **Bounce**: For scroll indicators
-
-### Duration
-- **Default**: `0.4s`
-- **Fast**: `0.2s`
-- **Slow**: `0.8s`
-
-### Hover Effects
-- Transform: `translateY(-10px)` for cards
-- Scale: `scale(1.05)` for interactive elements
-- Color transitions: `all 0.4s ease`
-
-## Responsive Breakpoints
-
-### Breakpoints
-- **Mobile**: `max-width: 480px`
-- **Tablet**: `max-width: 768px`
-- **Desktop**: `min-width: 1025px`
-
-### Grid System
-- **Max Width**: `1200px`
-- **Columns**: `12-column grid`
-- **Gutters**: `2.5rem` on desktop, `1.5rem` on mobile
-
-## Accessibility Standards
-
-### Contrast Ratios
-- Primary text on background: `7.0:1` ratio (exceeds AAA standard)
-- Secondary text on background: `4.6:1` ratio (meets AA standard)
-- All UI elements meet WCAG AA standards
-
-### Focus States
-- Visible focus rings with primary color (`#8A2BE2`)
-- `box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3)` for focus
-
-### Reduced Motion
-- When `prefers-reduced-motion: reduce`, disable all nonessential animations
-- Use `animation-duration: 0.01ms !important` and `transition-duration: 0.01ms !important`
-
-## Motion Guidelines
-
-### Scroll Animations
-- Fade-in elements: `opacity 0.8s ease` and `transform 0.8s ease`
-- Staggered animations for title lines with `0.1s` delays
-
-### Hover States
-- Subtle transforms for interactive elements (e.g., `translateY(-3px)` for buttons)
-- Smooth transitions using the default ease function
-
-### Loading States
-- Skeleton loading for content areas
-- Shimmer effect for placeholders
-
-## Background-Merged Imagery & Video Standards
-
-### Visual Integration Techniques
-- Images/videos must blend seamlessly with background
-- No frames, borders, or hard edges
-- Use subtle transparency (50-70%) for background media
-- Apply soft filters: `blur(1px) contrast(1.1) saturate(1.2)`
-- Use gradient overlays to maintain text legibility
-
-### Image Implementation
-- Background images use `background-size: cover` and `background-position: center`
-- Visual elements layered above as separate elements with `z-index: 2`
-- Apply `mix-blend-mode: overlay` for texture blending
-- Use `backdrop-filter: blur(5px)` on content overlays for additional depth
-
-### Video Implementation
-- Background videos should be muted, looped, and play inline
-- Apply same transparency and filter techniques as images
-- Include fallback images for video loading issues
-- Use minimal motion to avoid distraction from content
-
-### Content Legibility
-- Apply semi-transparent overlays (`rgba(15, 23, 42, 0.7)`) to ensure readable text
-- Use `z-index: 3` for text and interactive elements to position above background
-- Ensure WCAG AA contrast ratios are maintained over background imagery
+### 4. Interactive Canvas Engines
+- **Axonometric Drafting Canvas (`#universe`)**: 3D wireframe rotating monolithic blocks, perspective blueprint grid lines, drafting crosshair coordinates (`+`), and drifting airborne concrete dust particles.
+- **Card 1 — Kinetic Constructivist Tower**: Double-helical rotating wireframe, inclined structural spine, cross-truss bracing, load-bearing terracotta stress nodes, and revolving central assembly chamber.
+- **Card 2 — Modular Precast Facade**: Brutalist multi-story concrete facade with deep recessed window apertures, internal illumination cycles, and horizontal expansion joints.
+- **Card 3 — Modernist Observatory Rotunda**: Geodesic dome ribs, concentric azimuth calibration rings, and rotating 360° radar scanner beam.

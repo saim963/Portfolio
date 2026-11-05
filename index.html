@@ -1,380 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saim Shakeel | Python Backend & Android Developer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saim Shakeel — Python Backend &amp; Android Architect</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 </head>
+<body class="theme-soviet">
 
-<body>
-    <!-- Background Image/Video Container -->
-    <div class="background-container">
-        <!-- Background video that blends into the design -->
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="res/wojak-bg.mp4" type="video/mp4">
-        </video>
-        <!-- Or background image with texture -->
-        <img src="res/background-texture.jpg" alt="" class="background-image" style="display: none;">
+  <!-- ═══════════════════════════════════════════════
+       ARCHITECTURAL DRAFTING CANVAS (monolithic blueprints, wireframes, concrete dust)
+  ════════════════════════════════════════════════════ -->
+  <canvas id="universe"></canvas>
+
+  <!-- Drafting scale / progress indicator -->
+  <div id="progress-bar"></div>
+
+  <!-- Architectural drafting reticle cursor -->
+  <div id="cursor-outer">
+    <span class="reticle-tick rt-top"></span>
+    <span class="reticle-tick rt-right"></span>
+    <span class="reticle-tick rt-bottom"></span>
+    <span class="reticle-tick rt-left"></span>
+  </div>
+  <div id="cursor-inner"></div>
+
+  <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+  <nav id="nav">
+    <div class="nav-wrap">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-box">АРХ</span>
+        <span class="logo-rest">SAIM SHAKEEL</span>
+        <span class="logo-code mono">SYS-26</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#work"    data-nav><span class="nav-idx mono">01.</span> ОБЪЕКТЫ // WORK</a></li>
+        <li><a href="#links"   data-nav><span class="nav-idx mono">02.</span> СВЯЗИ // LINKS</a></li>
+        <li><a href="#about"   data-nav><span class="nav-idx mono">03.</span> ДОСЬЕ // ABOUT</a></li>
+        <li><a href="#contact" data-nav><span class="nav-idx mono">04.</span> СВЯЗЬ // CONTACT</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
+  <section id="hero" class="s-hero">
+
+    <div class="hero-grid">
+
+      <!-- Left: Monolithic Typography & Manifesto -->
+      <div class="hero-left">
+        <div class="hero-eyebrow reveal" data-delay="0">
+          <span class="terracotta-beacon"></span>
+          <span class="mono eyebrow-code">// СЕКТОР АРХИТЕКТУРЫ &bull; 26.84°N 80.95°E &bull; MONOLITHIC SYSTEMS</span>
+        </div>
+        <h1 class="hero-heading reveal" data-delay="100">
+          <span class="line arch-title-top">ENGINEERING</span>
+          <span class="line terracotta-text">MONOLITHIC SYSTEMS</span>
+          <span class="line arch-title-bot">&amp; ANDROID ARCHITECTURE</span>
+        </h1>
+        <p class="hero-sub reveal" id="heroSub" data-delay="300">
+          I architect resilient Python backend monoliths and fault-tolerant Android systems with Kotlin — built on principles of structural integrity, precision engineering, and monumental scale.
+        </p>
+        <div class="hero-actions reveal" data-delay="450">
+          <a href="#work"    class="btn-brutalist btn-primary-arch">
+            <span class="btn-corner-cut"></span>
+            <span class="btn-text">[ ИНСПЕКЦИЯ // VIEW PROJECTS ]</span>
+          </a>
+          <a href="#contact" class="btn-brutalist btn-secondary-arch">
+            <span class="btn-text">[ ДИСПЕТЧЕР // DISPATCH ]</span>
+          </a>
+        </div>
+
+        <!-- Monolithic Structural Stats -->
+        <div class="hero-stats reveal" data-delay="600">
+          <div class="stat-plinth">
+            <span class="stat-n">07+</span>
+            <span class="stat-l mono">ГОДЫ // YRS ENG</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-plinth">
+            <span class="stat-n">10K+</span>
+            <span class="stat-l mono">ОПЕРАЦИЙ // DAILY TXN</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-plinth">
+            <span class="stat-n">99.9%</span>
+            <span class="stat-l mono">НАДЁЖНОСТЬ // UPTIME</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Constructivist Portrait Monument -->
+      <div class="hero-right reveal" data-delay="200" id="heroRight">
+        <div class="monument-system" id="orbSystem">
+          <!-- Brutalist outer geometric brackets -->
+          <div class="bracket-frame bf1"></div>
+          <div class="bracket-frame bf2"></div>
+          <!-- Rotating drafting calipers -->
+          <div class="caliper-ring cr1"></div>
+          <div class="caliper-ring cr2"></div>
+          <!-- Architectural drafting crosshairs -->
+          <div class="crosshair ch-h"></div>
+          <div class="crosshair ch-v"></div>
+          <div class="corner-pin cp-tl">+</div>
+          <div class="corner-pin cp-tr">+</div>
+          <div class="corner-pin cp-bl">+</div>
+          <div class="corner-pin cp-br">+</div>
+          <!-- Monolithic Photo Plinth -->
+          <div class="monument-photo-wrap">
+            <img src="res/hero-visual.jpg" alt="Saim Shakeel - Backend & Android Engineer" class="monument-photo" id="heroPhoto">
+            <div class="monument-grid-overlay"></div>
+          </div>
+        </div>
+        <!-- Industrial Status Plaque -->
+        <div class="status-plaque">
+          <span class="status-indicator"></span>
+          <span class="mono plaque-text">СТАТУС: ДЕЙСТВУЕТ // SYSTEM ACTIVE</span>
+        </div>
+      </div>
     </div>
 
-    <div class="cursor-follower"></div>
+    <!-- Architectural elevation scroll hint -->
+    <div class="scroll-hint">
+      <div class="scroll-axis">
+        <span class="axis-arrow">&darr;</span>
+        <div class="scroll-line"></div>
+      </div>
+      <span class="mono scroll-txt">ГОРИЗОНТ // SCROLL</span>
+    </div>
+  </section>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="#" class="logo">Saim Shakeel</a>
-            <div class="nav-links">
-                <a href="#work">Work</a>
-                <a href="#links">Links</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <button class="menu-toggle">Menu</button>
-        </div>
-    </nav>
+  <!-- ═══════════════════════════════ WORK ══════════════════════════════ -->
+  <section id="work" class="s-work">
+    <div class="region-tag mono">[ КАТАЛОГ ОБЪЕКТОВ // STRUCTURAL ARCHIVE &bull; OTDEL-01 ]</div>
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">// ТЕХНИЧЕСКИЙ РЕЕСТР &bull; SELECTED WORKS</span>
+        <h2>Monolithic <em>Creations</em></h2>
+        <p>Production backend microservices, high-throughput APIs, and enterprise Android applications</p>
+      </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-line">Building robust</span>
-                    <span class="title-line accent">backend systems</span>
-                    <span class="title-line">and Android apps</span>
-                </h1>
-                <p class="hero-subtitle">
-                    I develop scalable Python backend solutions and feature-rich Android applications with Kotlin that
-                    power modern digital experiences.
-                </p>
-                <div class="hero-cta">
-                    <a href="#work" class="btn-primary">View My Work</a>
-                    <a href="#contact" class="btn-secondary">Get in Touch</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="res/hero-visual.jpg" alt="Portfolio overview" class="hero-visual">
-                    <div class="floating-element element-1"></div>
-                    <div class="floating-element element-2"></div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
+      <div class="projects-grid">
 
-    <!-- Work Section -->
-    <section id="work" class="work-section">
-        <div class="section-header">
-            <h2>Selected <span class="accent">Work</span></h2>
-            <p>Explore my latest backend and Android projects</p>
-        </div>
+        <!-- Card 1 — Featured Tower -->
+        <article class="project-card featured reveal" data-body="supernova">
+          <div class="card-inner">
+            <div class="card-visual">
+              <div class="card-canvas-wrap">
+                <canvas class="body-canvas" data-type="supernova"></canvas>
+              </div>
+              <div class="card-spec-tag mono">ОБЪЕКТ 01 // KINETIC MONOLITH</div>
+              <div class="card-corner-stamp">SYS-A</div>
+            </div>
+            <div class="card-body">
+              <span class="project-cat mono">[ BACKEND ARCHITECTURE &bull; PYTHON ]</span>
+              <h3>E-Commerce Backend API</h3>
+              <p>Monolithic RESTful transaction engine engineered with Django &amp; PostgreSQL. Features connection pooling, distributed caching, and automated idempotency handling <strong>10K+ daily transactions</strong> with sub-50ms latency.</p>
+              <div class="tag-row">
+                <span class="tag">Django</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">REST API</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Redis</span>
+              </div>
+              <a href="#" class="card-link">[ ТЕХПАСПОРТ // VIEW SPECIFICATION ] <span class="arr">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="card-border-glow"></div>
+        </article>
 
-        <div class="projects-grid">
-            <div class="project-card featured">
-                <div class="project-image-container">
-                    <div class="project-background-media" style="background-image: url('res/project1-bg.jpg');">
-                        <div class="media-overlay"></div>
-                    </div>
-                    <div class="project-visual-content">
-                        <img src="res/project1-visual.png" alt="E-commerce Backend API" class="project-visual">
-                    </div>
-                </div>
-                <div class="project-content">
-                    <span class="project-category">Backend Project</span>
-                    <h3>E-commerce Backend API</h3>
-                    <p>Built a scalable RESTful API using Django and PostgreSQL for an e-commerce platform handling 10K+
-                        daily transactions.</p>
-                    <a href="#" class="project-link">View Case Study</a>
-                </div>
+        <!-- Card 2 — Modular Facade -->
+        <article class="project-card reveal" data-body="pulsar">
+          <div class="card-inner">
+            <div class="card-visual">
+              <div class="card-canvas-wrap">
+                <canvas class="body-canvas" data-type="pulsar"></canvas>
+              </div>
+              <div class="card-spec-tag mono">ОБЪЕКТ 02 // MODULAR FACADE</div>
+              <div class="card-corner-stamp">APP-K</div>
             </div>
+            <div class="card-body">
+              <span class="project-cat mono">[ ANDROID SYSTEM &bull; KOTLIN ]</span>
+              <h3>Fitness Architecture App</h3>
+              <p>Constructed with modern declarative UI via Jetpack Compose and local offline-first SQLite through Room DB. Delivers real-time telemetry tracking, background sensor synchronization, and comprehensive biometrics analytics.</p>
+              <div class="tag-row">
+                <span class="tag">Kotlin</span>
+                <span class="tag">Jetpack Compose</span>
+                <span class="tag">Room DB</span>
+                <span class="tag">Coroutines</span>
+              </div>
+              <a href="#" class="card-link">[ ТЕХПАСПОРТ // VIEW SPECIFICATION ] <span class="arr">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="card-border-glow"></div>
+        </article>
 
-            <div class="project-card">
-                <div class="project-image-container">
-                    <div class="project-background-media" style="background-image: url('res/project2-bg.jpg');">
-                        <div class="media-overlay"></div>
-                    </div>
-                    <div class="project-visual-content">
-                        <img src="res/project2-visual.png" alt="Fitness Mobile App" class="project-visual">
-                    </div>
-                </div>
-                <div class="project-content">
-                    <span class="project-category">Android App</span>
-                    <h3>Fitness Mobile App</h3>
-                    <p>Developed a comprehensive fitness application with Kotlin and Jetpack Compose, featuring workout
-                        tracking and progress analytics.</p>
-                    <a href="#" class="project-link">View Case Study</a>
-                </div>
+        <!-- Card 3 — Rotunda Radar -->
+        <article class="project-card reveal" data-body="blackhole">
+          <div class="card-inner">
+            <div class="card-visual">
+              <div class="card-canvas-wrap">
+                <canvas class="body-canvas" data-type="blackhole"></canvas>
+              </div>
+              <div class="card-spec-tag mono">ОБЪЕКТ 03 // ROTUNDA OBSERVATORY</div>
+              <div class="card-corner-stamp">API-F</div>
             </div>
+            <div class="card-body">
+              <span class="project-cat mono">[ ASYNC BACKEND &bull; FASTAPI ]</span>
+              <h3>Task Management Protocol</h3>
+              <p>High-concurrency task orchestration engine leveraging Python FastAPI and asynchronous WebSockets. Implements role-based access tokens, live duplex event pipelines, and real-time operational status dashboards.</p>
+              <div class="tag-row">
+                <span class="tag">FastAPI</span>
+                <span class="tag">Python 3.12</span>
+                <span class="tag">WebSocket</span>
+                <span class="tag">AsyncIO</span>
+              </div>
+              <a href="#" class="card-link">[ ТЕХПАСПОРТ // VIEW SPECIFICATION ] <span class="arr">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="card-border-glow"></div>
+        </article>
 
-            <div class="project-card">
-                <div class="project-image-container">
-                    <div class="project-background-media" style="background-image: url('res/project3-bg.jpg');">
-                        <div class="media-overlay"></div>
-                    </div>
-                    <div class="project-visual-content">
-                        <img src="res/project3-visual.png" alt="Task Management API" class="project-visual">
-                    </div>
-                </div>
-                <div class="project-content">
-                    <span class="project-category">Backend Project</span>
-                    <h3>Task Management API</h3>
-                    <p>Created a FastAPI-based task management system with user authentication, real-time notifications,
-                        and analytics dashboard.</p>
-                    <a href="#" class="project-link">View Case Study</a>
-                </div>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Links Section -->
-    <section id="links" class="links-section">
-        <div class="section-header">
-            <h2>Reference <span class="accent">Links</span></h2>
-            <p>Useful resources and references for backend and Android development</p>
-        </div>
+  <!-- ═══════════════════════════════ LINKS ═════════════════════════════ -->
+  <section id="links" class="s-links">
+    <div class="region-tag mono">[ ВНЕШНИЕ СВЯЗИ // EXTERNAL NETWORK RELAYS &bull; PROTOCOL-02 ]</div>
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">// ТЕЛЕМЕТРИЯ И РЕСУРСЫ &bull; SIGNAL RELAYS</span>
+        <h2>Reference <em>Dossiers</em></h2>
+        <p>Direct dispatches, machine learning laboratories, verified deployments, and published documentation</p>
+      </div>
 
-        <div id="links-grid" class="links-grid">
-            <div class="link-card fade-in">
-                <span class="link-category">Browser Python</span>
-                <h4>Live Data Science Playground</h4>
-                <a href="https://saim963.github.io/Python_Notebook/" target="_blank" rel="noopener noreferrer"
-                    class="link-item">saim963.github.io/Python_Notebook/</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">Web App</span>
-                <h4>Prediction Analysis</h4>
-                <a href="https://prediction-analysis-bice.vercel.app/" target="_blank" rel="noopener noreferrer"
-                    class="link-item">prediction-analysis-bice.vercel.app</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">AI Tool</span>
-                <h4>Smart Content Generator</h4>
-                <a href="https://smart-content-generator.streamlit.app/" target="_blank" rel="noopener noreferrer"
-                    class="link-item">smart-content-generator.streamlit.app</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">Platform</span>
-                <h4>JobNagri</h4>
-                <a href="https://jobnagri.com/" target="_blank" rel="noopener noreferrer"
-                    class="link-item">jobnagri.com</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">Website</span>
-                <h4>GenZigs</h4>
-                <a href="https://genzigs.com/" target="_blank" rel="noopener noreferrer"
-                    class="link-item">genzigs.com</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">Utility</span>
-                <h4>Tasbih World</h4>
-                <a href="https://tasbih.world/" target="_blank" rel="noopener noreferrer"
-                    class="link-item">tasbih.world</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">Privacy</span>
-                <h4>Daylio Privacy Policy</h4>
-                <a href="https://sites.google.com/view/privacy-policy-daylio/home" target="_blank"
-                    rel="noopener noreferrer" class="link-item">Daylio Policy</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">SaaS</span>
-                <h4>Micro Software Studio</h4>
-                <a href="https://cintech.in" target="_blank" rel="noopener noreferrer" class="link-item">Cintech
-                    Softwares</a>
-            </div>
-            <div class="link-card fade-in">
-                <span class="link-category">Core</span>
-                <h4>Data Structures</h4>
-                <a href="https://saim963.github.io/Data-Structures/" target="_blank" rel="noopener noreferrer"
-                    class="link-item">saim963.github.io/Data-Structures/</a>
-            </div>
-        </div>
-    </section>
+      <div class="links-grid">
+        <a href="https://colab.research.google.com/drive/1I4OftnWvh8kix3Jxvd7Y7GWWhY6c3hJp#scrollTo=SRTdJyGlak0y"
+           target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <div class="lc-badge-row">
+            <span class="lc-code mono">[ DOC-01 // AI LAB ]</span>
+            <span class="lc-stamp">ИССЛЕДОВАНИЕ</span>
+          </div>
+          <h4>Deep Learning Project</h4>
+          <span class="lc-url mono">colab.research.google.com</span>
+          <span class="lc-arrow">&nearr;</span>
+        </a>
+        <a href="https://prediction-analysis-bice.vercel.app/"
+           target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <div class="lc-badge-row">
+            <span class="lc-code mono">[ DOC-02 // SYSTEM ]</span>
+            <span class="lc-stamp">АНАЛИТИКА</span>
+          </div>
+          <h4>Prediction Analysis</h4>
+          <span class="lc-url mono">prediction-analysis-bice.vercel.app</span>
+          <span class="lc-arrow">&nearr;</span>
+        </a>
+        <a href="https://smart-content-generator.streamlit.app/"
+           target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <div class="lc-badge-row">
+            <span class="lc-code mono">[ DOC-03 // UTILITY ]</span>
+            <span class="lc-stamp">ГЕНЕРАТОР</span>
+          </div>
+          <h4>Smart Content Generator</h4>
+          <span class="lc-url mono">smart-content-generator.streamlit.app</span>
+          <span class="lc-arrow">&nearr;</span>
+        </a>
+        <a href="https://jobnagri.com/"
+           target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <div class="lc-badge-row">
+            <span class="lc-code mono">[ DOC-04 // PLATFORM ]</span>
+            <span class="lc-stamp">ПОРТАЛ</span>
+          </div>
+          <h4>JobNagri Platform</h4>
+          <span class="lc-url mono">jobnagri.com</span>
+          <span class="lc-arrow">&nearr;</span>
+        </a>
+        <a href="https://genzigs.com/"
+           target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <div class="lc-badge-row">
+            <span class="lc-code mono">[ DOC-05 // PORTAL ]</span>
+            <span class="lc-stamp">ПРОЕКТ</span>
+          </div>
+          <h4>GenZigs</h4>
+          <span class="lc-url mono">genzigs.com</span>
+          <span class="lc-arrow">&nearr;</span>
+        </a>
+        <a href="https://tasbih.world/"
+           target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <div class="lc-badge-row">
+            <span class="lc-code mono">[ DOC-06 // UTILITY ]</span>
+            <span class="lc-stamp">СЕРВИС</span>
+          </div>
+          <h4>Tasbih World</h4>
+          <span class="lc-url mono">tasbih.world</span>
+          <span class="lc-arrow">&nearr;</span>
+        </a>
+        <a href="https://sites.google.com/view/privacy-policy-daylio/home"
+           target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <div class="lc-badge-row">
+            <span class="lc-code mono">[ DOC-07 // POLICY ]</span>
+            <span class="lc-stamp">ПРАВИЛА</span>
+          </div>
+          <h4>Daylio Privacy Policy</h4>
+          <span class="lc-url mono">Daylio Policy Portal</span>
+          <span class="lc-arrow">&nearr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="section-header">
-            <h2>About <span class="accent">Me</span></h2>
-            <p>My journey, skills, and approach to backend and Android development</p>
-        </div>
+  <!-- ═══════════════════════════════ ABOUT ═════════════════════════════ -->
+  <section id="about" class="s-about">
+    <div class="region-tag mono">[ ЛИЧНОЕ ДЕЛО // DOSSIER DECLASSIFIED &bull; SECTOR-03 ]</div>
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">// ИНЖЕНЕРНЫЙ ПРОФИЛЬ &bull; PERSONNEL RECORD</span>
+        <h2>Structural <em>Dossier</em></h2>
+        <p>Seven years of architecting robust backends, mobile systems, and database infrastructures</p>
+      </div>
 
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Building scalable solutions with Python & Kotlin</h3>
-                <p>
-                    With over 7 years of experience in software development, I specialize in creating robust backend
-                    systems
-                    with Python technologies and developing high-quality Android applications using Kotlin. My approach
-                    combines
-                    strategic thinking with technical excellence to deliver reliable, scalable solutions.
-                </p>
-                <p>
-                    I'm passionate about architecting efficient APIs, implementing complex business logic, and creating
-                    seamless mobile experiences. My work spans various industries, focusing on performance, security,
-                    and maintainability.
-                </p>
+      <div class="about-grid">
 
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Backend</h4>
-                        <ul>
-                            <li>Python</li>
-                            <li>Flask</li>
-                            <li>FastAPI</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Mobile</h4>
-                        <ul>
-                            <li>Kotlin</li>
-                            <li>Android Development</li>
-                            <li>Jetpack Compose</li>
-                            <li>Room Database</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>DevOps & Tools</h4>
-                        <ul>
-                            <li>RESTful APIs</li>
-                            <li>PostgreSQL</li>
-                            <li>Docker</li>
-                            <li>CI/CD</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Bio + Skills -->
+        <div class="about-left reveal">
+          <div class="dossier-header-bar mono">
+            <span>[ ПРОФИЛЬ ИНЖЕНЕРА // ENG-SPEC ]</span>
+            <span class="dossier-id">№ 963-SS</span>
+          </div>
+          <h3>Monolithic Foundations in Python &amp; Kotlin</h3>
+          <p>With over <strong>7 years</strong> of professional engineering experience, I specialize in crafting monolithic, high-throughput backend systems in Python and constructing resilient native Android applications with Kotlin.</p>
+          <p>My methodology treats software development with the rigor of structural architecture: every schema is load-tested, every API endpoint is reinforced against concurrency spikes, and every mobile client is engineered for durability, battery efficiency, and offline resilience.</p>
+
+          <div class="skills-block">
+            <div class="skill-group">
+              <h4 class="sg-title mono">[ РАЗДЕЛ I &bull; BACKEND ARCHITECTURE ]</h4>
+              <div class="skill-row"><span class="sk-name mono">Python Core</span>   <span class="sk-bar"><span class="sk-fill" data-w="95"></span></span><span class="sk-pct mono">95%</span></div>
+              <div class="skill-row"><span class="sk-name mono">Django / Flask</span> <span class="sk-bar"><span class="sk-fill" data-w="88"></span></span><span class="sk-pct mono">88%</span></div>
+              <div class="skill-row"><span class="sk-name mono">FastAPI / Async</span><span class="sk-bar"><span class="sk-fill" data-w="90"></span></span><span class="sk-pct mono">90%</span></div>
             </div>
-
-            <div class="about-visual">
-                <div class="process-diagram-container">
-                    <div class="process-background-media" style="background-image: url('res/process-bg.jpg');">
-                        <div class="media-overlay"></div>
-                    </div>
-                    <div class="process-diagram-content">
-                        <div class="process-diagram">
-                            <div class="process-step">
-                                <div class="step-number">01</div>
-                                <h4>Research</h4>
-                                <p>Understanding needs, goals, and constraints</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">02</div>
-                                <h4>Design</h4>
-                                <p>Creating concepts and iterating solutions</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">03</div>
-                                <h4>Build</h4>
-                                <p>Developing and implementing the solution</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">04</div>
-                                <h4>Refine</h4>
-                                <p>Testing, iterating, and perfecting</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="skill-group">
+              <h4 class="sg-title mono">[ РАЗДЕЛ II &bull; MOBILE SYSTEMS ]</h4>
+              <div class="skill-row"><span class="sk-name mono">Kotlin Native</span>  <span class="sk-bar"><span class="sk-fill" data-w="92"></span></span><span class="sk-pct mono">92%</span></div>
+              <div class="skill-row"><span class="sk-name mono">Jetpack Compose</span><span class="sk-bar"><span class="sk-fill" data-w="85"></span></span><span class="sk-pct mono">85%</span></div>
+              <div class="skill-row"><span class="sk-name mono">Room SQLite</span>    <span class="sk-bar"><span class="sk-fill" data-w="82"></span></span><span class="sk-pct mono">82%</span></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="section-header">
-            <h2>Get in <span class="accent">Touch</span></h2>
-            <p>Need a reliable engineer on your team? Let's connect.</p>
+            <div class="skill-group">
+              <h4 class="sg-title mono">[ РАЗДЕЛ III &bull; INFRASTRUCTURE &amp; DATA ]</h4>
+              <div class="skill-row"><span class="sk-name mono">REST &amp; WebSocket</span><span class="sk-bar"><span class="sk-fill" data-w="96"></span></span><span class="sk-pct mono">96%</span></div>
+              <div class="skill-row"><span class="sk-name mono">PostgreSQL Core</span> <span class="sk-bar"><span class="sk-fill" data-w="88"></span></span><span class="sk-pct mono">88%</span></div>
+              <div class="skill-row"><span class="sk-name mono">Docker Container</span><span class="sk-bar"><span class="sk-fill" data-w="80"></span></span><span class="sk-pct mono">80%</span></div>
+              <div class="skill-row"><span class="sk-name mono">CI/CD Pipelines</span>  <span class="sk-bar"><span class="sk-fill" data-w="78"></span></span><span class="sk-pct mono">78%</span></div>
+            </div>
+          </div>
         </div>
 
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-info-container">
-                    <div class="contact-background-media" style="background-image: url('res/contact-bg.jpg');">
-                        <div class="media-overlay"></div>
-                    </div>
-                    <div class="contact-info-content">
-                        <h3>Let's create something amazing together</h3>
-                        <p>
-                            I'm always interested in new opportunities and exciting projects.
-                            Reach out and let's discuss how we can bring your vision to life.
-                        </p>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <h4>Email</h4>
-                                <a href="mailto:aims3328@gmail.com">aims3328@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <h4>Location</h4>
-                                <p>UP, IND</p>
-                            </div>
-                            <div class="contact-item">
-                                <h4>Social</h4>
-                                <div class="social-links">
-                                    <a href="https://www.linkedin.com/in/saim-shakeel/" aria-label="LinkedIn"
-                                        target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                                    <a href="https://github.com/saim963" aria-label="GitHub" target="_blank"
-                                        rel="noopener noreferrer">GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Process / Construction Protocol -->
+        <div class="about-right reveal">
+          <div class="mission-log">
+            <div class="ml-header mono">
+              <span class="ml-tag">[ РЕГЛАМЕНТ СТРОИТЕЛЬСТВА ]</span>
+              <span class="ml-title">ENGINEERING PROTOCOL</span>
             </div>
-
-            <div class="contact-form-container">
-                <div class="form-background-media" style="background-image: url('res/form-bg.jpg');">
-                    <div class="media-overlay"></div>
+            <div class="ml-steps">
+              <div class="ml-step">
+                <div class="ml-num mono">01</div>
+                <div class="ml-line"></div>
+                <div class="ml-content">
+                  <h4>Structural Analysis</h4>
+                  <p>In-depth architectural scoping, domain constraint mapping, database schema sizing, and stress-factor calculations.</p>
                 </div>
-                <div class="form-content">
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
+              </div>
+              <div class="ml-step">
+                <div class="ml-num mono">02</div>
+                <div class="ml-line"></div>
+                <div class="ml-content">
+                  <h4>Drafting &amp; Blueprinting</h4>
+                  <p>Designing contract-first OpenAPI definitions, relational constraints, concurrency models, and Android view hierarchy.</p>
                 </div>
+              </div>
+              <div class="ml-step">
+                <div class="ml-num mono">03</div>
+                <div class="ml-line"></div>
+                <div class="ml-content">
+                  <h4>Monolithic Assembly</h4>
+                  <p>Developing robust Python backend services, asynchronous worker threads, reactive Kotlin Compose layers, and Room DB caches.</p>
+                </div>
+              </div>
+              <div class="ml-step last">
+                <div class="ml-num mono">04</div>
+                <div class="ml-content">
+                  <h4>Stress Verification</h4>
+                  <p>Rigorous load testing, memory profiling, benchmark profiling, containerized deployment, and continuous integration.</p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <a href="#" class="logo">Saim Shakeel</a>
-                <p>Building scalable backend systems and Android applications</p>
+  <!-- ═══════════════════════════════ CONTACT ═══════════════════════════ -->
+  <section id="contact" class="s-contact">
+    <div class="region-tag mono">[ ПРЯМАЯ СВЯЗЬ // DISPATCH TERMINAL &bull; WIRE-04 ]</div>
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">// ДИСПЕТЧЕРСКИЙ ПУЛЬТ &bull; COMMUNICATIONS DESK</span>
+        <h2>Establish <em>Contact</em></h2>
+        <p>Seeking an experienced architect for your backend systems or Android projects? Send a direct transmission.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div class="contact-info reveal">
+          <div class="dossier-stamp mono">[ СЛУЖЕБНЫЙ КАНАЛ ]</div>
+          <h3>Constructing enduring digital monoliths</h3>
+          <p>I am available for senior backend architecture, high-load Python API development, and specialized native Android applications. Transmit your project blueprint.</p>
+
+          <div class="contact-details">
+            <div class="cd-item">
+              <span class="cd-icon mono">&#9632;</span>
+              <div>
+                <span class="cd-label mono">ПОЧТА // DIRECT WIRE</span>
+                <a href="mailto:aims3328@gmail.com" class="cd-val">aims3328@gmail.com</a>
+              </div>
             </div>
-            <div class="footer-links">
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+            <div class="cd-item">
+              <span class="cd-icon mono">&#9650;</span>
+              <div>
+                <span class="cd-label mono">ЛОКАЦИЯ // COORDINATES</span>
+                <span class="cd-val">Uttar Pradesh, India [26.84°N &bull; 80.95°E]</span>
+              </div>
             </div>
-            <div class="footer-credit">
-                <p>© 2025. All rights reserved.</p>
+            <div class="cd-item">
+              <span class="cd-icon mono">&#9670;</span>
+              <div>
+                <span class="cd-label mono">СЕТИ // EXTERNAL NETWORKS</span>
+                <div class="socials">
+                  <a href="https://www.linkedin.com/in/saim-shakeel/" target="_blank" rel="noopener noreferrer" class="social-btn mono">[ LINKEDIN &nearr; ]</a>
+                  <a href="https://github.com/saim963" target="_blank" rel="noopener noreferrer" class="social-btn mono">[ GITHUB &nearr; ]</a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <!-- Brutalist Terminal Form -->
+        <div class="contact-form-wrap reveal">
+          <div class="terminal-bar mono">
+            <span class="tb-title">[ ТЕЛЕГРАММА // DISPATCH FORM ]</span>
+            <span class="tb-id">CANAL-4</span>
+          </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-field">
+              <label for="fname" class="mono">[ 01 ] ИДЕНТИФИКАТОР // YOUR NAME</label>
+              <input type="text" id="fname" name="name" placeholder="Name or Organization" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="femail" class="mono">[ 02 ] КАНАЛ СВЯЗИ // YOUR EMAIL</label>
+              <input type="email" id="femail" name="email" placeholder="official@domain.com" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="fmsg" class="mono">[ 03 ] СОДЕРЖАНИЕ // MESSAGE SPECIFICATION</label>
+              <textarea id="fmsg" name="message" rows="5" placeholder="Detail your project requirements, timeline, and architectural specifications…" required></textarea>
+            </div>
+            <button type="submit" class="btn-brutalist btn-send">
+              <span class="btn-corner-cut"></span>
+              <span class="btn-text">[ ОТПРАВИТЬ ДЕПЕШУ // TRANSMIT DISPATCH ]</span>
+              <span class="btn-icon">&rarr;</span>
+            </button>
+            <div class="form-feedback mono" id="formFeedback"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ FOOTER ════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-box">АРХ</span>
+          <span class="logo-rest">SAIM SHAKEEL</span>
+        </a>
+        <p>Architecting scalable Python backend solutions and native Android systems with structural integrity.</p>
+        <span class="mono footer-coords">[ 26.84°N &bull; 80.95°E &bull; СЕКТОР АРХИТЕКТУРЫ &bull; ГОССТАНДАРТ-2026 ]</span>
+      </div>
+      <div class="footer-nav">
+        <span class="footer-col-title mono">// НАВИГАЦИЯ</span>
+        <a href="#work" class="mono">[01] ОБЪЕКТЫ / WORK</a>
+        <a href="#links" class="mono">[02] СВЯЗИ / LINKS</a>
+        <a href="#about" class="mono">[03] ДОСЬЕ / ABOUT</a>
+        <a href="#contact" class="mono">[04] СВЯЗЬ / CONTACT</a>
+      </div>
+      <div class="footer-credit">
+        <span class="footer-col-title mono">// СОСТОЯНИЕ СИСТЕМЫ</span>
+        <p class="mono">&copy; 2026 SAIM SHAKEEL</p>
+        <p class="mono footer-signal">&#9632; СИСТЕМА ДЕЙСТВУЕТ // SYSTEM VERIFIED</p>
+        <p class="mono footer-palette">PALETTE: 7A828A &bull; A3AAAE &bull; C2C7C5 &bull; 9C8E85 &bull; 8A6552</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
