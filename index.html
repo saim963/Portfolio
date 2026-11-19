@@ -9,15 +9,44 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 </head>
-<body class="theme-soviet">
+<body class="theme-monolith">
 
   <!-- ═══════════════════════════════════════════════
-       ARCHITECTURAL DRAFTING CANVAS (monolithic blueprints, wireframes, concrete dust)
+       TACTILE CONCRETE TEXTURE & GRAIN OVERLAY
+  ════════════════════════════════════════════════════ -->
+  <div class="concrete-grain-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       ARCHITECTURAL DRAFTING CANVAS (monolithic megaliths, wireframes, concrete dust)
   ════════════════════════════════════════════════════ -->
   <canvas id="universe"></canvas>
 
   <!-- Drafting scale / progress indicator -->
   <div id="progress-bar"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       MEGALOPHOBIA: VERTICAL ELEVATION RULER
+  ════════════════════════════════════════════════════ -->
+  <aside class="megalith-elevation-ruler" id="elevationRuler" aria-hidden="true">
+    <div class="ruler-header mono">
+      <span class="ruler-indicator-dot"></span>
+      <span class="ruler-title">ELEVATION</span>
+      <span class="ruler-live-val" id="rulerLiveVal">+840.0M</span>
+    </div>
+    <div class="ruler-track">
+      <div class="ruler-needle" id="rulerNeedle"></div>
+      <div class="ruler-mark rm-1"><span class="ruler-tick"></span><span class="ruler-label mono">+1480M // APEX</span></div>
+      <div class="ruler-mark rm-2"><span class="ruler-tick"></span><span class="ruler-label mono">+1120M // PYLON</span></div>
+      <div class="ruler-mark rm-3"><span class="ruler-tick"></span><span class="ruler-label mono">+840M // MONOLITH</span></div>
+      <div class="ruler-mark rm-4"><span class="ruler-tick"></span><span class="ruler-label mono">+560M // CORE</span></div>
+      <div class="ruler-mark rm-5"><span class="ruler-tick"></span><span class="ruler-label mono">+280M // BUTTRESS</span></div>
+      <div class="ruler-mark rm-6"><span class="ruler-tick"></span><span class="ruler-label mono">+000M // DATUM</span></div>
+      <div class="ruler-mark rm-7"><span class="ruler-tick"></span><span class="ruler-label mono">-120M // BEDROCK</span></div>
+    </div>
+    <div class="ruler-footer mono">
+      <span>MASS: 4.8M T</span>
+    </div>
+  </aside>
 
   <!-- Architectural drafting reticle cursor -->
   <div id="cursor-outer">
@@ -32,15 +61,15 @@
   <nav id="nav">
     <div class="nav-wrap">
       <a href="#hero" class="nav-logo">
-        <span class="logo-box">АРХ</span>
+        <span class="logo-box">ARCH</span>
         <span class="logo-rest">SAIM SHAKEEL</span>
         <span class="logo-code mono">SYS-26</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#work"    data-nav><span class="nav-idx mono">01.</span> ОБЪЕКТЫ // WORK</a></li>
-        <li><a href="#links"   data-nav><span class="nav-idx mono">02.</span> СВЯЗИ // LINKS</a></li>
-        <li><a href="#about"   data-nav><span class="nav-idx mono">03.</span> ДОСЬЕ // ABOUT</a></li>
-        <li><a href="#contact" data-nav><span class="nav-idx mono">04.</span> СВЯЗЬ // CONTACT</a></li>
+        <li><a href="#work"    data-nav><span class="nav-idx mono">01.</span> MONOLITHS // WORK</a></li>
+        <li><a href="#links"   data-nav><span class="nav-idx mono">02.</span> RELAYS // LINKS</a></li>
+        <li><a href="#about"   data-nav><span class="nav-idx mono">03.</span> DOSSIER // ABOUT</a></li>
+        <li><a href="#contact" data-nav><span class="nav-idx mono">04.</span> DISPATCH // CONTACT</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -51,13 +80,16 @@
   <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
   <section id="hero" class="s-hero">
 
+    <!-- Megalophobic Looming Background Text -->
+    <div class="megalith-bg-watermark" aria-hidden="true">MONOLITH</div>
+
     <div class="hero-grid">
 
       <!-- Left: Monolithic Typography & Manifesto -->
       <div class="hero-left">
         <div class="hero-eyebrow reveal" data-delay="0">
           <span class="terracotta-beacon"></span>
-          <span class="mono eyebrow-code">// СЕКТОР АРХИТЕКТУРЫ &bull; 26.84°N 80.95°E &bull; MONOLITHIC SYSTEMS</span>
+          <span class="mono eyebrow-code">// ARCHITECTURAL SECTOR &bull; 26.84°N 80.95°E &bull; MONOLITHIC SYSTEMS</span>
         </div>
         <h1 class="hero-heading reveal" data-delay="100">
           <span class="line arch-title-top">ENGINEERING</span>
@@ -67,13 +99,25 @@
         <p class="hero-sub reveal" id="heroSub" data-delay="300">
           I architect resilient Python backend monoliths and fault-tolerant Android systems with Kotlin — built on principles of structural integrity, precision engineering, and monumental scale.
         </p>
+
+        <!-- Megalophobic Scale Comparison & Telemetry Bar -->
+        <div class="megalith-scale-telemetry mono reveal" data-delay="380">
+          <span class="mst-item"><span class="mst-dot"></span>SCALE: TITANIC</span>
+          <span class="mst-sep">|</span>
+          <span class="mst-item">ELEVATION: +840.0M</span>
+          <span class="mst-sep">|</span>
+          <span class="mst-item">MASS: 4.8×10⁶ TONS</span>
+          <span class="mst-sep">|</span>
+          <span class="mst-item">LOAD: 580 MPa</span>
+        </div>
+
         <div class="hero-actions reveal" data-delay="450">
           <a href="#work"    class="btn-brutalist btn-primary-arch">
             <span class="btn-corner-cut"></span>
-            <span class="btn-text">[ ИНСПЕКЦИЯ // VIEW PROJECTS ]</span>
+            <span class="btn-text">[ INSPECTION // VIEW MONOLITHS ]</span>
           </a>
           <a href="#contact" class="btn-brutalist btn-secondary-arch">
-            <span class="btn-text">[ ДИСПЕТЧЕР // DISPATCH ]</span>
+            <span class="btn-text">[ TRANSMIT // DIRECT DISPATCH ]</span>
           </a>
         </div>
 
@@ -81,17 +125,20 @@
         <div class="hero-stats reveal" data-delay="600">
           <div class="stat-plinth">
             <span class="stat-n">07+</span>
-            <span class="stat-l mono">ГОДЫ // YRS ENG</span>
+            <span class="stat-l mono">YEARS // YRS ENG</span>
+            <span class="stat-foot-spec mono">EXP: LVL-IV</span>
           </div>
           <div class="stat-div"></div>
           <div class="stat-plinth">
             <span class="stat-n">10K+</span>
-            <span class="stat-l mono">ОПЕРАЦИЙ // DAILY TXN</span>
+            <span class="stat-l mono">OPERATIONS // DAILY TXN</span>
+            <span class="stat-foot-spec mono">LATENCY &lt;50MS</span>
           </div>
           <div class="stat-div"></div>
           <div class="stat-plinth">
             <span class="stat-n">99.9%</span>
-            <span class="stat-l mono">НАДЁЖНОСТЬ // UPTIME</span>
+            <span class="stat-l mono">RELIABILITY // UPTIME</span>
+            <span class="stat-foot-spec mono">FAULT TOLERANT</span>
           </div>
         </div>
       </div>
@@ -112,16 +159,28 @@
           <div class="corner-pin cp-tr">+</div>
           <div class="corner-pin cp-bl">+</div>
           <div class="corner-pin cp-br">+</div>
-          <!-- Monolithic Photo Plinth -->
+          <!-- Megalophobic Scale Caliper Guide -->
+          <div class="monument-height-guide mono">
+            <span class="mh-top">+840M</span>
+            <span class="mh-line"></span>
+            <span class="mh-human">[ 1.8M ]</span>
+            <span class="mh-bot">+000M</span>
+          </div>
+          <!-- Monolithic Photo Plinth with Concrete Tie-holes -->
           <div class="monument-photo-wrap">
+            <span class="tie-hole th-tl"></span>
+            <span class="tie-hole th-tr"></span>
+            <span class="tie-hole th-bl"></span>
+            <span class="tie-hole th-br"></span>
             <img src="res/hero-visual.jpg" alt="Saim Shakeel - Backend & Android Engineer" class="monument-photo" id="heroPhoto">
             <div class="monument-grid-overlay"></div>
+            <div class="monument-formwork-seam"></div>
           </div>
         </div>
         <!-- Industrial Status Plaque -->
         <div class="status-plaque">
           <span class="status-indicator"></span>
-          <span class="mono plaque-text">СТАТУС: ДЕЙСТВУЕТ // SYSTEM ACTIVE</span>
+          <span class="mono plaque-text">STATUS: OPERATIONAL // SYSTEM ACTIVE</span>
         </div>
       </div>
     </div>
@@ -132,18 +191,22 @@
         <span class="axis-arrow">&darr;</span>
         <div class="scroll-line"></div>
       </div>
-      <span class="mono scroll-txt">ГОРИЗОНТ // SCROLL</span>
+      <span class="mono scroll-txt">ELEVATION // DESCEND</span>
     </div>
   </section>
 
   <!-- ═══════════════════════════════ WORK ══════════════════════════════ -->
   <section id="work" class="s-work">
-    <div class="region-tag mono">[ КАТАЛОГ ОБЪЕКТОВ // STRUCTURAL ARCHIVE &bull; OTDEL-01 ]</div>
+    <!-- Looming Megalophobic Section Watermark -->
+    <div class="megalith-bg-watermark" aria-hidden="true">COLOSSUS</div>
+
+    <div class="region-tag mono">[ MEGASTRUCTURE ARCHIVE // MONOLITH CATALOG &bull; SECTOR-01 ]</div>
     <div class="section-wrap">
       <div class="section-header reveal">
-        <span class="eyebrow mono">// ТЕХНИЧЕСКИЙ РЕЕСТР &bull; SELECTED WORKS</span>
+        <span class="eyebrow mono">// TECHNICAL REGISTRY &bull; SELECTED WORKS</span>
         <h2>Monolithic <em>Creations</em></h2>
-        <p>Production backend microservices, high-throughput APIs, and enterprise Android applications</p>
+        <p>Production backend monoliths, high-throughput transaction engines, and fault-tolerant Android systems engineered for monumental scale</p>
+        <div class="megalith-section-dimension mono">[ LOAD-BEARING SPAN: 460M &bull; STRUCTURAL MASS: 1.2M TONS &bull; SEISMIC: CLASS IX ]</div>
       </div>
 
       <div class="projects-grid">
@@ -151,12 +214,19 @@
         <!-- Card 1 — Featured Tower -->
         <article class="project-card featured reveal" data-body="supernova">
           <div class="card-inner">
+            <!-- Concrete Formwork Tie-Holes -->
+            <span class="tie-hole th-tl"></span>
+            <span class="tie-hole th-tr"></span>
+            <span class="tie-hole th-bl"></span>
+            <span class="tie-hole th-br"></span>
+
             <div class="card-visual">
               <div class="card-canvas-wrap">
                 <canvas class="body-canvas" data-type="supernova"></canvas>
               </div>
-              <div class="card-spec-tag mono">ОБЪЕКТ 01 // KINETIC MONOLITH</div>
+              <div class="card-spec-tag mono">MONOLITH 01 // KINETIC TOWER</div>
               <div class="card-corner-stamp">SYS-A</div>
+              <div class="card-altitude-callout mono">ELEV: +740M</div>
             </div>
             <div class="card-body">
               <span class="project-cat mono">[ BACKEND ARCHITECTURE &bull; PYTHON ]</span>
@@ -169,7 +239,7 @@
                 <span class="tag">Docker</span>
                 <span class="tag">Redis</span>
               </div>
-              <a href="#" class="card-link">[ ТЕХПАСПОРТ // VIEW SPECIFICATION ] <span class="arr">&rarr;</span></a>
+              <a href="#" class="card-link">[ SPECIFICATION // VIEW BLUEPRINT ] <span class="arr">&rarr;</span></a>
             </div>
           </div>
           <div class="card-border-glow"></div>
@@ -178,12 +248,19 @@
         <!-- Card 2 — Modular Facade -->
         <article class="project-card reveal" data-body="pulsar">
           <div class="card-inner">
+            <!-- Concrete Formwork Tie-Holes -->
+            <span class="tie-hole th-tl"></span>
+            <span class="tie-hole th-tr"></span>
+            <span class="tie-hole th-bl"></span>
+            <span class="tie-hole th-br"></span>
+
             <div class="card-visual">
               <div class="card-canvas-wrap">
                 <canvas class="body-canvas" data-type="pulsar"></canvas>
               </div>
-              <div class="card-spec-tag mono">ОБЪЕКТ 02 // MODULAR FACADE</div>
+              <div class="card-spec-tag mono">MONOLITH 02 // PRECAST FACADE</div>
               <div class="card-corner-stamp">APP-K</div>
+              <div class="card-altitude-callout mono">ELEV: +480M</div>
             </div>
             <div class="card-body">
               <span class="project-cat mono">[ ANDROID SYSTEM &bull; KOTLIN ]</span>
@@ -195,7 +272,7 @@
                 <span class="tag">Room DB</span>
                 <span class="tag">Coroutines</span>
               </div>
-              <a href="#" class="card-link">[ ТЕХПАСПОРТ // VIEW SPECIFICATION ] <span class="arr">&rarr;</span></a>
+              <a href="#" class="card-link">[ SPECIFICATION // VIEW BLUEPRINT ] <span class="arr">&rarr;</span></a>
             </div>
           </div>
           <div class="card-border-glow"></div>
@@ -204,12 +281,19 @@
         <!-- Card 3 — Rotunda Radar -->
         <article class="project-card reveal" data-body="blackhole">
           <div class="card-inner">
+            <!-- Concrete Formwork Tie-Holes -->
+            <span class="tie-hole th-tl"></span>
+            <span class="tie-hole th-tr"></span>
+            <span class="tie-hole th-bl"></span>
+            <span class="tie-hole th-br"></span>
+
             <div class="card-visual">
               <div class="card-canvas-wrap">
                 <canvas class="body-canvas" data-type="blackhole"></canvas>
               </div>
-              <div class="card-spec-tag mono">ОБЪЕКТ 03 // ROTUNDA OBSERVATORY</div>
+              <div class="card-spec-tag mono">MONOLITH 03 // ROTUNDA OBSERVATORY</div>
               <div class="card-corner-stamp">API-F</div>
+              <div class="card-altitude-callout mono">ELEV: +320M</div>
             </div>
             <div class="card-body">
               <span class="project-cat mono">[ ASYNC BACKEND &bull; FASTAPI ]</span>
@@ -221,7 +305,7 @@
                 <span class="tag">WebSocket</span>
                 <span class="tag">AsyncIO</span>
               </div>
-              <a href="#" class="card-link">[ ТЕХПАСПОРТ // VIEW SPECIFICATION ] <span class="arr">&rarr;</span></a>
+              <a href="#" class="card-link">[ SPECIFICATION // VIEW BLUEPRINT ] <span class="arr">&rarr;</span></a>
             </div>
           </div>
           <div class="card-border-glow"></div>
@@ -233,20 +317,26 @@
 
   <!-- ═══════════════════════════════ LINKS ═════════════════════════════ -->
   <section id="links" class="s-links">
-    <div class="region-tag mono">[ ВНЕШНИЕ СВЯЗИ // EXTERNAL NETWORK RELAYS &bull; PROTOCOL-02 ]</div>
+    <!-- Looming Megalophobic Section Watermark -->
+    <div class="megalith-bg-watermark" aria-hidden="true">RELAYS</div>
+
+    <div class="region-tag mono">[ EXTERNAL RELAYS // NETWORK PROTOCOL &bull; SECTOR-02 ]</div>
     <div class="section-wrap">
       <div class="section-header reveal">
-        <span class="eyebrow mono">// ТЕЛЕМЕТРИЯ И РЕСУРСЫ &bull; SIGNAL RELAYS</span>
+        <span class="eyebrow mono">// TELEMETRY &amp; RESOURCES &bull; SIGNAL RELAYS</span>
         <h2>Reference <em>Dossiers</em></h2>
-        <p>Direct dispatches, machine learning laboratories, verified deployments, and published documentation</p>
+        <p>Direct dispatches, machine learning laboratories, verified deployments, and published technical documentation</p>
+        <div class="megalith-section-dimension mono">[ RELAY MAST: +720M &bull; TRANSMISSION RADIUS: 4,800 KM &bull; 4.7 GHz BEAM ]</div>
       </div>
 
       <div class="links-grid">
         <a href="https://colab.research.google.com/drive/1I4OftnWvh8kix3Jxvd7Y7GWWhY6c3hJp#scrollTo=SRTdJyGlak0y"
            target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
           <div class="lc-badge-row">
             <span class="lc-code mono">[ DOC-01 // AI LAB ]</span>
-            <span class="lc-stamp">ИССЛЕДОВАНИЕ</span>
+            <span class="lc-stamp">RESEARCH</span>
           </div>
           <h4>Deep Learning Project</h4>
           <span class="lc-url mono">colab.research.google.com</span>
@@ -254,9 +344,11 @@
         </a>
         <a href="https://prediction-analysis-bice.vercel.app/"
            target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
           <div class="lc-badge-row">
             <span class="lc-code mono">[ DOC-02 // SYSTEM ]</span>
-            <span class="lc-stamp">АНАЛИТИКА</span>
+            <span class="lc-stamp">ANALYTICS</span>
           </div>
           <h4>Prediction Analysis</h4>
           <span class="lc-url mono">prediction-analysis-bice.vercel.app</span>
@@ -264,9 +356,11 @@
         </a>
         <a href="https://smart-content-generator.streamlit.app/"
            target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
           <div class="lc-badge-row">
             <span class="lc-code mono">[ DOC-03 // UTILITY ]</span>
-            <span class="lc-stamp">ГЕНЕРАТОР</span>
+            <span class="lc-stamp">GENERATOR</span>
           </div>
           <h4>Smart Content Generator</h4>
           <span class="lc-url mono">smart-content-generator.streamlit.app</span>
@@ -274,9 +368,11 @@
         </a>
         <a href="https://jobnagri.com/"
            target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
           <div class="lc-badge-row">
             <span class="lc-code mono">[ DOC-04 // PLATFORM ]</span>
-            <span class="lc-stamp">ПОРТАЛ</span>
+            <span class="lc-stamp">PORTAL</span>
           </div>
           <h4>JobNagri Platform</h4>
           <span class="lc-url mono">jobnagri.com</span>
@@ -284,9 +380,11 @@
         </a>
         <a href="https://genzigs.com/"
            target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
           <div class="lc-badge-row">
             <span class="lc-code mono">[ DOC-05 // PORTAL ]</span>
-            <span class="lc-stamp">ПРОЕКТ</span>
+            <span class="lc-stamp">PROJECT</span>
           </div>
           <h4>GenZigs</h4>
           <span class="lc-url mono">genzigs.com</span>
@@ -294,9 +392,11 @@
         </a>
         <a href="https://tasbih.world/"
            target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
           <div class="lc-badge-row">
             <span class="lc-code mono">[ DOC-06 // UTILITY ]</span>
-            <span class="lc-stamp">СЕРВИС</span>
+            <span class="lc-stamp">SERVICE</span>
           </div>
           <h4>Tasbih World</h4>
           <span class="lc-url mono">tasbih.world</span>
@@ -304,32 +404,14 @@
         </a>
         <a href="https://sites.google.com/view/privacy-policy-daylio/home"
            target="_blank" rel="noopener noreferrer" class="link-card reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
           <div class="lc-badge-row">
             <span class="lc-code mono">[ DOC-07 // POLICY ]</span>
-            <span class="lc-stamp">ПРАВИЛА</span>
+            <span class="lc-stamp">POLICY</span>
           </div>
           <h4>Daylio Privacy Policy</h4>
           <span class="lc-url mono">Daylio Policy Portal</span>
-          <span class="lc-arrow">&nearr;</span>
-        </a>
-        <a href="https://saim963.github.io/CS-Master_Roadmap_Oct26/"
-          target="_blank" rel="noopener noreferrer" class="link-card reveal">
-          <div class="lc-badge-row">
-            <span class="lc-code mono">[ DOC-08// ROADMAP ]</span>
-            <span class="lc-stamp">Водич</span>
-          </div>
-          <h4>CS Ultimate Reference</h4>
-          <span class="lc-url mono">CS Master Roadmap</span>
-          <span class="lc-arrow">&nearr;</span>
-        </a>
-        <a href="https://saim963.github.io/Data-Structures/"
-          target="_blank" rel="noopener noreferrer" class="link-card reveal">
-          <div class="lc-badge-row">
-            <span class="lc-code mono">[ DOC-09// FAMILY TREE ]</span>
-            <span class="lc-stamp">семејно стебло</span>
-          </div>
-          <h4>Data Structures</h4>
-          <span class="lc-url mono">Structure.io</span>
           <span class="lc-arrow">&nearr;</span>
         </a>
       </div>
@@ -338,12 +420,16 @@
 
   <!-- ═══════════════════════════════ ABOUT ═════════════════════════════ -->
   <section id="about" class="s-about">
-    <div class="region-tag mono">[ ЛИЧНОЕ ДЕЛО // DOSSIER DECLASSIFIED &bull; SECTOR-03 ]</div>
+    <!-- Looming Megalophobic Section Watermark -->
+    <div class="megalith-bg-watermark" aria-hidden="true">BUNKER</div>
+
+    <div class="region-tag mono">[ PERSONNEL DOSSIER // DECLASSIFIED &bull; SECTOR-03 ]</div>
     <div class="section-wrap">
       <div class="section-header reveal">
-        <span class="eyebrow mono">// ИНЖЕНЕРНЫЙ ПРОФИЛЬ &bull; PERSONNEL RECORD</span>
+        <span class="eyebrow mono">// ENGINEERING PROFILE &bull; PERSONNEL RECORD</span>
         <h2>Structural <em>Dossier</em></h2>
-        <p>Seven years of architecting robust backends, mobile systems, and database infrastructures</p>
+        <p>Seven years of architecting robust backends, mobile systems, and high-concurrency database infrastructures</p>
+        <div class="megalith-section-dimension mono">[ SUB-FOUNDATION DEPTH: -85.0M &bull; COMPRESSION: 580 MPa &bull; CAST PRECAST VAULT ]</div>
       </div>
 
       <div class="about-grid">
@@ -351,8 +437,8 @@
         <!-- Bio + Skills -->
         <div class="about-left reveal">
           <div class="dossier-header-bar mono">
-            <span>[ ПРОФИЛЬ ИНЖЕНЕРА // ENG-SPEC ]</span>
-            <span class="dossier-id">№ 963-SS</span>
+            <span>[ ENGINEER DOSSIER // ENG-SPEC ]</span>
+            <span class="dossier-id">NO. 963-SS</span>
           </div>
           <h3>Monolithic Foundations in Python &amp; Kotlin</h3>
           <p>With over <strong>7 years</strong> of professional engineering experience, I specialize in crafting monolithic, high-throughput backend systems in Python and constructing resilient native Android applications with Kotlin.</p>
@@ -360,19 +446,19 @@
 
           <div class="skills-block">
             <div class="skill-group">
-              <h4 class="sg-title mono">[ РАЗДЕЛ I &bull; BACKEND ARCHITECTURE ]</h4>
+              <h4 class="sg-title mono">[ DIVISION I &bull; BACKEND ARCHITECTURE ]</h4>
               <div class="skill-row"><span class="sk-name mono">Python Core</span>   <span class="sk-bar"><span class="sk-fill" data-w="95"></span></span><span class="sk-pct mono">95%</span></div>
               <div class="skill-row"><span class="sk-name mono">Django / Flask</span> <span class="sk-bar"><span class="sk-fill" data-w="88"></span></span><span class="sk-pct mono">88%</span></div>
               <div class="skill-row"><span class="sk-name mono">FastAPI / Async</span><span class="sk-bar"><span class="sk-fill" data-w="90"></span></span><span class="sk-pct mono">90%</span></div>
             </div>
             <div class="skill-group">
-              <h4 class="sg-title mono">[ РАЗДЕЛ II &bull; MOBILE SYSTEMS ]</h4>
+              <h4 class="sg-title mono">[ DIVISION II &bull; MOBILE SYSTEMS ]</h4>
               <div class="skill-row"><span class="sk-name mono">Kotlin Native</span>  <span class="sk-bar"><span class="sk-fill" data-w="92"></span></span><span class="sk-pct mono">92%</span></div>
               <div class="skill-row"><span class="sk-name mono">Jetpack Compose</span><span class="sk-bar"><span class="sk-fill" data-w="85"></span></span><span class="sk-pct mono">85%</span></div>
               <div class="skill-row"><span class="sk-name mono">Room SQLite</span>    <span class="sk-bar"><span class="sk-fill" data-w="82"></span></span><span class="sk-pct mono">82%</span></div>
             </div>
             <div class="skill-group">
-              <h4 class="sg-title mono">[ РАЗДЕЛ III &bull; INFRASTRUCTURE &amp; DATA ]</h4>
+              <h4 class="sg-title mono">[ DIVISION III &bull; INFRASTRUCTURE &amp; DATA ]</h4>
               <div class="skill-row"><span class="sk-name mono">REST &amp; WebSocket</span><span class="sk-bar"><span class="sk-fill" data-w="96"></span></span><span class="sk-pct mono">96%</span></div>
               <div class="skill-row"><span class="sk-name mono">PostgreSQL Core</span> <span class="sk-bar"><span class="sk-fill" data-w="88"></span></span><span class="sk-pct mono">88%</span></div>
               <div class="skill-row"><span class="sk-name mono">Docker Container</span><span class="sk-bar"><span class="sk-fill" data-w="80"></span></span><span class="sk-pct mono">80%</span></div>
@@ -385,7 +471,7 @@
         <div class="about-right reveal">
           <div class="mission-log">
             <div class="ml-header mono">
-              <span class="ml-tag">[ РЕГЛАМЕНТ СТРОИТЕЛЬСТВА ]</span>
+              <span class="ml-tag">[ CONSTRUCTION PROTOCOL ]</span>
               <span class="ml-title">ENGINEERING PROTOCOL</span>
             </div>
             <div class="ml-steps">
@@ -429,19 +515,23 @@
 
   <!-- ═══════════════════════════════ CONTACT ═══════════════════════════ -->
   <section id="contact" class="s-contact">
-    <div class="region-tag mono">[ ПРЯМАЯ СВЯЗЬ // DISPATCH TERMINAL &bull; WIRE-04 ]</div>
+    <!-- Looming Megalophobic Section Watermark -->
+    <div class="megalith-bg-watermark" aria-hidden="true">DISPATCH</div>
+
+    <div class="region-tag mono">[ DIRECT LINE // DISPATCH TERMINAL &bull; WIRE-04 ]</div>
     <div class="section-wrap">
       <div class="section-header reveal">
-        <span class="eyebrow mono">// ДИСПЕТЧЕРСКИЙ ПУЛЬТ &bull; COMMUNICATIONS DESK</span>
+        <span class="eyebrow mono">// COMMUNICATIONS DESK &bull; DISPATCH TERMINAL</span>
         <h2>Establish <em>Contact</em></h2>
-        <p>Seeking an experienced architect for your backend systems or Android projects? Send a direct transmission.</p>
+        <p>Seeking an experienced architect for your backend systems or Android projects? Transmit a direct operational dispatch.</p>
+        <div class="megalith-section-dimension mono">[ DISPATCH MAST: +340M &bull; TRANSMIT POWER: 50 kW &bull; DIRECT RELAY ]</div>
       </div>
 
       <div class="contact-grid">
 
         <!-- Info -->
         <div class="contact-info reveal">
-          <div class="dossier-stamp mono">[ СЛУЖЕБНЫЙ КАНАЛ ]</div>
+          <div class="dossier-stamp mono">[ OFFICIAL FREQUENCY ]</div>
           <h3>Constructing enduring digital monoliths</h3>
           <p>I am available for senior backend architecture, high-load Python API development, and specialized native Android applications. Transmit your project blueprint.</p>
 
@@ -449,21 +539,21 @@
             <div class="cd-item">
               <span class="cd-icon mono">&#9632;</span>
               <div>
-                <span class="cd-label mono">ПОЧТА // DIRECT WIRE</span>
+                <span class="cd-label mono">DIRECT WIRE // EMAIL</span>
                 <a href="mailto:aims3328@gmail.com" class="cd-val">aims3328@gmail.com</a>
               </div>
             </div>
             <div class="cd-item">
               <span class="cd-icon mono">&#9650;</span>
               <div>
-                <span class="cd-label mono">ЛОКАЦИЯ // COORDINATES</span>
+                <span class="cd-label mono">COORDINATES // LOCATION</span>
                 <span class="cd-val">Uttar Pradesh, India [26.84°N &bull; 80.95°E]</span>
               </div>
             </div>
             <div class="cd-item">
               <span class="cd-icon mono">&#9670;</span>
               <div>
-                <span class="cd-label mono">СЕТИ // EXTERNAL NETWORKS</span>
+                <span class="cd-label mono">NETWORKS // EXTERNAL RELAYS</span>
                 <div class="socials">
                   <a href="https://www.linkedin.com/in/saim-shakeel/" target="_blank" rel="noopener noreferrer" class="social-btn mono">[ LINKEDIN &nearr; ]</a>
                   <a href="https://github.com/saim963" target="_blank" rel="noopener noreferrer" class="social-btn mono">[ GITHUB &nearr; ]</a>
@@ -475,26 +565,30 @@
 
         <!-- Brutalist Terminal Form -->
         <div class="contact-form-wrap reveal">
+          <span class="tie-hole th-tl"></span>
+          <span class="tie-hole th-tr"></span>
+          <span class="tie-hole th-bl"></span>
+          <span class="tie-hole th-br"></span>
           <div class="terminal-bar mono">
-            <span class="tb-title">[ ТЕЛЕГРАММА // DISPATCH FORM ]</span>
+            <span class="tb-title">[ TELEGRAPH DISPATCH // TRANSMIT FORM ]</span>
             <span class="tb-id">CANAL-4</span>
           </div>
           <form class="contact-form" id="contactForm" novalidate>
             <div class="form-field">
-              <label for="fname" class="mono">[ 01 ] ИДЕНТИФИКАТОР // YOUR NAME</label>
+              <label for="fname" class="mono">[ 01 ] IDENTIFIER // YOUR NAME</label>
               <input type="text" id="fname" name="name" placeholder="Name or Organization" required autocomplete="name">
             </div>
             <div class="form-field">
-              <label for="femail" class="mono">[ 02 ] КАНАЛ СВЯЗИ // YOUR EMAIL</label>
+              <label for="femail" class="mono">[ 02 ] RELAY CHANNEL // YOUR EMAIL</label>
               <input type="email" id="femail" name="email" placeholder="official@domain.com" required autocomplete="email">
             </div>
             <div class="form-field">
-              <label for="fmsg" class="mono">[ 03 ] СОДЕРЖАНИЕ // MESSAGE SPECIFICATION</label>
+              <label for="fmsg" class="mono">[ 03 ] TRANSMISSION // MESSAGE SPEC</label>
               <textarea id="fmsg" name="message" rows="5" placeholder="Detail your project requirements, timeline, and architectural specifications…" required></textarea>
             </div>
             <button type="submit" class="btn-brutalist btn-send">
               <span class="btn-corner-cut"></span>
-              <span class="btn-text">[ ОТПРАВИТЬ ДЕПЕШУ // TRANSMIT DISPATCH ]</span>
+              <span class="btn-text">[ TRANSMIT DISPATCH // EXECUTE ]</span>
               <span class="btn-icon">&rarr;</span>
             </button>
             <div class="form-feedback mono" id="formFeedback"></div>
@@ -510,23 +604,23 @@
     <div class="footer-wrap">
       <div class="footer-brand">
         <a href="#hero" class="nav-logo">
-          <span class="logo-box">АРХ</span>
+          <span class="logo-box">ARCH</span>
           <span class="logo-rest">SAIM SHAKEEL</span>
         </a>
         <p>Architecting scalable Python backend solutions and native Android systems with structural integrity.</p>
-        <span class="mono footer-coords">[ 26.84°N &bull; 80.95°E &bull; СЕКТОР АРХИТЕКТУРЫ &bull; ГОССТАНДАРТ-2026 ]</span>
+        <span class="mono footer-coords">[ 26.84°N &bull; 80.95°E &bull; MONOLITHIC SECTOR &bull; SPEC-2026 ]</span>
       </div>
       <div class="footer-nav">
-        <span class="footer-col-title mono">// НАВИГАЦИЯ</span>
-        <a href="#work" class="mono">[01] ОБЪЕКТЫ / WORK</a>
-        <a href="#links" class="mono">[02] СВЯЗИ / LINKS</a>
-        <a href="#about" class="mono">[03] ДОСЬЕ / ABOUT</a>
-        <a href="#contact" class="mono">[04] СВЯЗЬ / CONTACT</a>
+        <span class="footer-col-title mono">// NAVIGATION INDEX</span>
+        <a href="#work" class="mono">[01] MONOLITHS // WORK</a>
+        <a href="#links" class="mono">[02] RELAYS // LINKS</a>
+        <a href="#about" class="mono">[03] DOSSIER // ABOUT</a>
+        <a href="#contact" class="mono">[04] DISPATCH // CONTACT</a>
       </div>
       <div class="footer-credit">
-        <span class="footer-col-title mono">// СОСТОЯНИЕ СИСТЕМЫ</span>
+        <span class="footer-col-title mono">// SYSTEM INTEGRITY</span>
         <p class="mono">&copy; 2026 SAIM SHAKEEL</p>
-        <p class="mono footer-signal">&#9632; СИСТЕМА ДЕЙСТВУЕТ // SYSTEM VERIFIED</p>
+        <p class="mono footer-signal">&#9632; SYSTEM OPERATIONAL // VERIFIED ARCHITECTURE</p>
         <p class="mono footer-palette">PALETTE: 7A828A &bull; A3AAAE &bull; C2C7C5 &bull; 9C8E85 &bull; 8A6552</p>
       </div>
     </div>

@@ -42,7 +42,7 @@ The color scheme is directly extracted from Soviet Modernism, monumental precast
 - Chamfered corner cuts: `clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)`.
 - Structural joints: `border: 1px solid var(--slate-grey)`.
 - Hard architectural drop shadows: `3px 3px 0 #0d0f11` shifting to `4px 4px 0 var(--faded-terracotta)` on hover.
-- Classification stamps: `[ СЕКЦИЯ 01 // ARCH-01 ]`.
+- Classification stamps: `[ SECTION 01 // ARCH-01 ]`.
 
 ### 2. Monumental Brutalist Buttons
 - **Primary**: Background in Faded Terracotta (`#8A6552`), text in Dusty Concrete (`#edf0ef`), chamfered top-right cut, solid mechanical offset hover `transform: translate(-2px, -2px)`.

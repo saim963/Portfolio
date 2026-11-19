@@ -180,16 +180,36 @@ function smoothScrollTo(el) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-//  DRAFTING SCALE PROGRESS BAR
+//  DRAFTING SCALE PROGRESS BAR & MEGALITH ELEVATION TRACKER
 // ═══════════════════════════════════════════════════════════════════════════════
 function initProgress() {
   const bar = document.getElementById('progress-bar');
-  if (!bar) return;
-  window.addEventListener('scroll', () => {
+  const rulerVal = document.getElementById('rulerLiveVal');
+  const rulerNeedle = document.getElementById('rulerNeedle');
+
+  function update() {
     const total = document.body.scrollHeight - window.innerHeight;
-    const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
-    bar.style.width = Math.min(pct, 100) + '%';
-  }, { passive: true });
+    const progress = total > 0 ? (window.scrollY / total) : 0;
+    const pct = Math.min(Math.max(progress, 0), 1);
+
+    if (bar) bar.style.width = (pct * 100) + '%';
+
+    // Megalithic Elevation telemetry: +1480M at apex down to -120M at bedrock bunker
+    if (rulerVal || rulerNeedle) {
+      const topElev = 1480;
+      const botElev = -120;
+      const curElev = topElev - pct * (topElev - botElev);
+      if (rulerVal) {
+        rulerVal.textContent = (curElev >= 0 ? '+' : '') + curElev.toFixed(0) + 'M';
+      }
+      if (rulerNeedle) {
+        rulerNeedle.style.top = (pct * 88 + 6) + '%';
+      }
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -519,7 +539,7 @@ function drawModularBrutalistGrid(ctx, W, H) {
     ctx.font = '8px "Space Mono", monospace';
     ctx.fillStyle = PALETTE.cloudyGrey;
     ctx.fillText('|── 3600mm ──|', startX + cellW * 0.3, startY - 14);
-    ctx.fillText('МОДУЛЬ Б-04 // ELEVATION 24.0m', startX, startY + rows * cellH + 18);
+    ctx.fillText('MODULE B-04 // ELEVATION 24.0M', startX, startY + rows * cellH + 18);
 
     requestAnimationFrame(frame);
   }
@@ -674,25 +694,31 @@ function initArchitecturalCanvas() {
       color: Math.random() > 0.4 ? PALETTE.dustyConcrete : PALETTE.mutedKhaki
     }));
 
-    // 2. Monolithic 3D Wireframe Structures
+    // 2. Monolithic 3D Wireframe Structures — Towering Megaliths
     monoliths = [
       {
-        x: W * 0.12, y: H * 0.35,
-        w: 90, h: 140, d: 70,
-        rotY: 0.4, rotX: 0.25,
-        speedY: 0.003, speedX: 0.001
+        x: W * 0.12, y: H * 0.52,
+        w: 130, h: 420, d: 90,
+        rotY: 0.35, rotX: 0.18,
+        speedY: 0.0009, speedX: 0.0003,
+        label: 'PYLON-01 // +560M',
+        floors: 6
       },
       {
-        x: W * 0.88, y: H * 0.65,
-        w: 120, h: 80, d: 80,
-        rotY: -0.6, rotX: 0.3,
-        speedY: -0.002, speedX: 0.0015
+        x: W * 0.88, y: H * 0.48,
+        w: 160, h: 460, d: 110,
+        rotY: -0.45, rotX: 0.22,
+        speedY: -0.0008, speedX: 0.0004,
+        label: 'BUTTRESS-02 // +720M',
+        floors: 7
       },
       {
-        x: W * 0.5, y: H * 0.9,
-        w: 160, h: 90, d: 110,
-        rotY: 0.2, rotX: 0.2,
-        speedY: 0.001, speedX: -0.001
+        x: W * 0.5, y: H * 0.78,
+        w: 220, h: 540, d: 150,
+        rotY: 0.18, rotX: 0.12,
+        speedY: 0.0005, speedX: -0.0002,
+        label: 'CORE MONOLITH // +840M',
+        floors: 9
       }
     ];
 
@@ -742,8 +768,8 @@ function initArchitecturalCanvas() {
       [0,4],[1,5],[2,6],[3,7]  // connectors
     ];
 
-    ctx.strokeStyle = 'rgba(122, 130, 138, 0.22)';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(122, 130, 138, 0.28)';
+    ctx.lineWidth = 1.2;
 
     edges.forEach(([i1, i2]) => {
       ctx.beginPath();
@@ -752,13 +778,43 @@ function initArchitecturalCanvas() {
       ctx.stroke();
     });
 
+    // Horizontal Megalith Floor Plates / Diaphragms
+    const numFloors = m.floors || 5;
+    for (let f = 1; f < numFloors; f++) {
+      const fy = -hh + (f / numFloors) * m.h;
+      const fVerts = [
+        [-hw, fy, -hd], [hw, fy, -hd], [hw, fy, hd], [-hw, fy, hd]
+      ];
+      const fProj = fVerts.map(([x, y, z]) => {
+        const x1 = x * cosY - z * sinY;
+        const z1 = x * sinY + z * cosY;
+        const y2 = y * cosX - z1 * sinX;
+        return [x1, y2];
+      });
+
+      ctx.beginPath();
+      ctx.moveTo(fProj[0][0], fProj[0][1]);
+      for (let k = 1; k < 4; k++) ctx.lineTo(fProj[k][0], fProj[k][1]);
+      ctx.closePath();
+      ctx.strokeStyle = f % 2 === 0 ? 'rgba(163, 170, 174, 0.2)' : 'rgba(122, 130, 138, 0.12)';
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+    }
+
     // Accent load nodes on corners in terracotta
     proj.forEach(([px, py]) => {
       ctx.beginPath();
-      ctx.arc(px, py, 1.8, 0, Math.PI * 2);
+      ctx.arc(px, py, 2, 0, Math.PI * 2);
       ctx.fillStyle = PALETTE.fadedTerracotta;
       ctx.fill();
     });
+
+    // Monolith elevation blueprint callout tag
+    if (m.label) {
+      ctx.font = '7.5px "Space Mono", monospace';
+      ctx.fillStyle = PALETTE.cloudyGrey;
+      ctx.fillText(m.label, proj[0][0] - 10, proj[0][1] - 8);
+    }
 
     ctx.restore();
   }
@@ -879,11 +935,11 @@ function initContactForm() {
     feedback.className   = 'form-feedback mono';
 
     if (!name || !email || !msg) {
-      setFeedback('[ ОШИБКА ] Заполните все поля // Please fill all fields.', 'error');
+      setFeedback('[ ERROR ] Specification incomplete // Please fill all fields.', 'error');
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setFeedback('[ ОШИБКА ] Некорректный адрес связи // Invalid email address.', 'error');
+      setFeedback('[ ERROR ] Invalid dispatch frequency // Invalid email address.', 'error');
       return;
     }
 
@@ -891,13 +947,13 @@ function initContactForm() {
     btn.disabled = true;
     const txtSpan = btn.querySelector('.btn-text');
     const origText = txtSpan.textContent;
-    txtSpan.textContent = '[ ПЕРЕДАЧА ДЕПЕШИ… // TRANSMITTING… ]';
+    txtSpan.textContent = '[ TRANSMITTING DISPATCH… // IN PROGRESS ]';
 
     setTimeout(() => {
       form.reset();
       btn.disabled = false;
       txtSpan.textContent = origText;
-      setFeedback('[ ДЕПЕША ПРИНЯТА ] Сообщение передано // Transmission received successfully.', 'success');
+      setFeedback('[ DISPATCH DELIVERED ] Signal confirmed // Transmission received successfully.', 'success');
     }, 1200);
   });
 

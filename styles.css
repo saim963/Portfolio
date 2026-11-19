@@ -77,15 +77,35 @@ body {
   position: relative;
 }
 
-/* Subtle concrete formwork blueprint pattern overlay */
+/* ── Tactile Concrete Texture & Grain Overlay ── */
+.concrete-grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 990;
+  opacity: 0.085;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+}
+
+/* Concrete formwork blueprint & board-marked lift pattern overlay */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(122, 130, 138, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(122, 130, 138, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+    /* Board-marked concrete horizontal lift lines */
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(122, 130, 138, 0.04) 39px, rgba(122, 130, 138, 0.04) 40px),
+    /* Vertical construction joints */
+    repeating-linear-gradient(90deg, transparent, transparent 159px, rgba(122, 130, 138, 0.03) 159px, rgba(122, 130, 138, 0.03) 160px),
+    /* Drafting coordinate grid */
+    linear-gradient(to right, rgba(122, 130, 138, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(122, 130, 138, 0.03) 1px, transparent 1px);
+  background-size: 100% 40px, 160px 100%, 80px 80px, 80px 80px;
   pointer-events: none;
   z-index: -1;
 }
@@ -184,6 +204,141 @@ p {
   box-shadow: 0 0 10px var(--terracotta-glow);
   transition: width 0.06s linear;
 }
+
+/* ── Megalithic Elevation Ruler (Brutalist Megalophobia) ── */
+.megalith-elevation-ruler {
+  position: fixed;
+  left: 1.2rem;
+  top: 5.8rem;
+  bottom: 2.2rem;
+  width: 76px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  user-select: none;
+  border-right: 1px solid rgba(122, 130, 138, 0.22);
+  padding-right: 8px;
+}
+
+.ruler-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  color: var(--tx-slate);
+}
+
+.ruler-indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--faded-terracotta);
+  box-shadow: 0 0 6px var(--faded-terracotta);
+  margin-bottom: 2px;
+}
+
+.ruler-title {
+  font-size: 0.56rem;
+  color: var(--tx-slate);
+}
+
+.ruler-live-val {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--tx-monolith);
+  letter-spacing: 0.08em;
+}
+
+.ruler-track {
+  position: relative;
+  flex: 1;
+  margin: 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ruler-needle {
+  position: absolute;
+  right: -9px;
+  top: 6%;
+  width: 14px;
+  height: 2px;
+  background: var(--faded-terracotta);
+  box-shadow: 0 0 6px var(--faded-terracotta);
+  transition: top 0.1s linear;
+}
+
+.ruler-needle::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  border-right: 4px solid var(--faded-terracotta);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.ruler-mark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ruler-tick {
+  width: 7px;
+  height: 1px;
+  background: rgba(122, 130, 138, 0.4);
+}
+
+.ruler-label {
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  color: var(--tx-slate);
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.ruler-footer {
+  font-size: 0.54rem;
+  letter-spacing: 0.1em;
+  color: var(--tx-slate);
+}
+
+/* ── Authentic Concrete Formwork Tie-Holes ── */
+.tie-hole {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #14171a;
+  border: 1px solid rgba(122, 130, 138, 0.45);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(163, 170, 174, 0.12);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.tie-hole::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: var(--slate-grey);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+}
+
+.th-tl { top: 10px; left: 10px; }
+.th-tr { top: 10px; right: 10px; }
+.th-bl { bottom: 10px; left: 10px; }
+.th-br { bottom: 10px; right: 10px; }
 
 /* ── Architectural Drafting Reticle Cursor ── */
 #cursor-outer {
@@ -375,11 +530,35 @@ body:not(:hover) #cursor-inner {
   overflow: hidden;
 }
 
+/* ── Brutalist Megalophobia Looming Watermarks ── */
+.megalith-bg-watermark {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(6.5rem, 18.5vw, 21rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.75;
+  color: rgba(122, 130, 138, 0.04);
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  text-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+}
+
 .section-wrap {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 7.5rem 2rem;
   position: relative;
+  z-index: 2;
 }
 
 .region-tag {
@@ -396,12 +575,14 @@ body:not(:hover) #cursor-inner {
   background: var(--bg-monolith);
   padding: 0.2rem 0.8rem;
   border: 1px solid var(--rim);
+  z-index: 2;
 }
 
 .section-header {
   text-align: center;
   margin-bottom: 4.5rem;
   position: relative;
+  z-index: 2;
 }
 
 .section-header .eyebrow {
@@ -420,6 +601,17 @@ body:not(:hover) #cursor-inner {
   max-width: 600px;
   margin: 0 auto;
   color: var(--tx-mid);
+}
+
+.megalith-section-dimension {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--faded-terracotta);
+  background: rgba(26, 29, 33, 0.75);
+  padding: 0.25rem 0.8rem;
+  border: 1px dashed rgba(138, 101, 82, 0.45);
 }
 
 /* ── Scroll Reveal System ── */
@@ -526,6 +718,37 @@ body:not(:hover) #cursor-inner {
   padding-left: 1.2rem;
 }
 
+/* Megalithic Scale Telemetry */
+.megalith-scale-telemetry {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.95rem;
+  background: rgba(26, 29, 33, 0.85);
+  border: 1px solid var(--rim);
+  border-left: 3px solid var(--faded-terracotta);
+  font-size: 0.64rem;
+  color: var(--tx-mid);
+  letter-spacing: 0.14em;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.04), 3px 3px 0 #0d0f11;
+  width: fit-content;
+}
+
+.mst-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--faded-terracotta);
+  box-shadow: 0 0 5px var(--faded-terracotta);
+  margin-right: 5px;
+}
+
+.mst-sep {
+  color: var(--slate-grey);
+  opacity: 0.5;
+}
+
 .hero-actions {
   display: flex;
   gap: 1.2rem;
@@ -550,42 +773,50 @@ body:not(:hover) #cursor-inner {
 
 .btn-primary-arch {
   background: var(--faded-terracotta);
+  /* Concrete grip hatching */
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(0, 0, 0, 0.1) 6px, rgba(0, 0, 0, 0.1) 7px);
   color: var(--tx-monolith);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  box-shadow: 3px 3px 0 #0d0f11;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2), 3px 3px 0 #0d0f11;
 }
 
 .btn-primary-arch:hover {
   transform: translate(-2px, -2px);
-  background: #9d745e;
-  box-shadow: 5px 5px 0 #0d0f11, 0 0 20px var(--terracotta-glow);
+  background-color: #9d745e;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.3), 5px 5px 0 #0d0f11, 0 0 20px var(--terracotta-glow);
 }
 
 .btn-secondary-arch {
   background: var(--bg-panel);
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(122, 130, 138, 0.03) 15px, rgba(122, 130, 138, 0.03) 16px);
   color: var(--tx-concrete);
   border: 1px solid var(--slate-grey);
-  box-shadow: 3px 3px 0 #0d0f11;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.06), 3px 3px 0 #0d0f11;
 }
 
 .btn-secondary-arch:hover {
   transform: translate(-2px, -2px);
   border-color: var(--cloudy-grey);
   color: var(--tx-monolith);
-  background: var(--bg-panel-lifted);
-  box-shadow: 5px 5px 0 #0d0f11;
+  background-color: var(--bg-panel-lifted);
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.1), 5px 5px 0 #0d0f11;
 }
 
 /* Monolithic Structural Stats */
 .hero-stats {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.6rem;
   margin-top: 0.8rem;
   padding: 1.2rem 1.6rem;
   background: var(--bg-monolith);
+  /* Board-formed concrete lift lines */
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(122, 130, 138, 0.04) 19px, rgba(122, 130, 138, 0.04) 20px);
   border: 1px solid var(--rim);
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.05), inset -1px -1px 0 rgba(0, 0, 0, 0.4), 4px 4px 0 #0d0f11;
   width: fit-content;
 }
 
@@ -593,14 +824,22 @@ body:not(:hover) #cursor-inner {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  padding: 0.2rem 0.4rem;
 }
 
 .stat-n {
   font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--tx-monolith);
   line-height: 1;
+}
+
+.stat-foot-spec {
+  font-size: 0.54rem;
+  color: var(--faded-terracotta);
+  letter-spacing: 0.12em;
+  margin-top: 2px;
 }
 
 .stat-l {
@@ -700,6 +939,37 @@ body:not(:hover) #cursor-inner {
 .cp-bl { bottom: 0; left: 0; }
 .cp-br { bottom: 0; right: 0; }
 
+/* Megalophobic Monument Height Caliper Guide */
+.monument-height-guide {
+  position: absolute;
+  right: -36px;
+  top: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.55rem;
+  color: var(--tx-slate);
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.mh-line {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--faded-terracotta), var(--slate-grey), var(--faded-terracotta));
+  margin: 4px 0;
+}
+
+.mh-human {
+  font-size: 0.5rem;
+  color: var(--faded-terracotta);
+  background: var(--bg-monolith);
+  padding: 1px 3px;
+  border: 1px solid var(--rim);
+}
+
 /* Photo Plinth */
 .monument-photo-wrap {
   position: relative;
@@ -709,7 +979,7 @@ body:not(:hover) #cursor-inner {
   background: var(--bg-panel);
   border: 2px solid var(--slate-grey);
   clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.1), 0 0 35px rgba(0, 0, 0, 0.8), 4px 4px 0 #0d0f11;
   overflow: hidden;
 }
 
@@ -729,6 +999,16 @@ body:not(:hover) #cursor-inner {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(138, 101, 82, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.monument-formwork-seam {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(122, 130, 138, 0.35);
   pointer-events: none;
 }
 
@@ -813,18 +1093,23 @@ body:not(:hover) #cursor-inner {
 .project-card {
   position: relative;
   background: var(--bg-panel);
-  border: 1px solid var(--rim);
+  /* Board-formed precast concrete lines & texture */
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(122, 130, 138, 0.035) 27px, rgba(122, 130, 138, 0.035) 28px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%, rgba(0, 0, 0, 0.25) 100%);
+  border: 1px solid var(--slate-grey);
   display: flex;
   flex-direction: column;
   transition: transform 0.3s var(--ease-brutal), border-color 0.3s, box-shadow 0.3s;
   cursor: none;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  box-shadow: inset 1px 1px 0 rgba(237, 240, 239, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.6), 5px 5px 0 #0a0c0e;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: var(--slate-grey);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 4px 4px 0 var(--faded-terracotta);
+  border-color: var(--dusty-concrete);
+  box-shadow: inset 1px 1px 0 rgba(237, 240, 239, 0.12), inset -1px -1px 0 rgba(0, 0, 0, 0.7), 0 18px 45px rgba(0, 0, 0, 0.7), 6px 6px 0 var(--faded-terracotta);
 }
 
 .project-card.featured {
@@ -848,6 +1133,7 @@ body:not(:hover) #cursor-inner {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 /* Card Visual & Canvas Container */
@@ -877,8 +1163,20 @@ body:not(:hover) #cursor-inner {
   font-size: 0.6rem;
   letter-spacing: 0.16em;
   color: var(--dusty-concrete);
-  background: rgba(19, 21, 24, 0.85);
+  background: rgba(19, 21, 24, 0.88);
   padding: 0.2rem 0.6rem;
+  border: 1px solid var(--rim);
+}
+
+.card-altitude-callout {
+  position: absolute;
+  top: 0.8rem;
+  left: 1rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--tx-mid);
+  background: rgba(19, 21, 24, 0.85);
+  padding: 0.15rem 0.5rem;
   border: 1px solid var(--rim);
 }
 
@@ -892,7 +1190,7 @@ body:not(:hover) #cursor-inner {
   color: var(--faded-terracotta);
   border: 1px solid var(--faded-terracotta);
   padding: 0.15rem 0.5rem;
-  background: rgba(19, 21, 24, 0.8);
+  background: rgba(19, 21, 24, 0.85);
 }
 
 .card-body {
@@ -1010,10 +1308,15 @@ body:not(:hover) #cursor-inner {
   gap: 0.8rem;
   padding: 1.8rem;
   background: var(--bg-panel);
+  /* Board-marked concrete & precast texture */
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(122, 130, 138, 0.025) 23px, rgba(122, 130, 138, 0.025) 24px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 60%, rgba(0, 0, 0, 0.2) 100%);
   border: 1px solid var(--rim);
   transition: transform 0.25s var(--ease-brutal), border-color 0.25s, box-shadow 0.25s;
   cursor: none;
-  box-shadow: 2px 2px 0 #0d0f11;
+  box-shadow: inset 1px 1px 0 rgba(237, 240, 239, 0.05), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 3px 3px 0 #0d0f11;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 
 .link-card::before {
@@ -1029,7 +1332,7 @@ body:not(:hover) #cursor-inner {
 .link-card:hover {
   transform: translateY(-5px);
   border-color: var(--slate-grey);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 3px 3px 0 var(--faded-terracotta);
+  box-shadow: inset 1px 1px 0 rgba(237, 240, 239, 0.1), inset -1px -1px 0 rgba(0, 0, 0, 0.6), 0 12px 30px rgba(0, 0, 0, 0.55), 4px 4px 0 var(--faded-terracotta);
 }
 
 .link-card:hover::before {
@@ -1387,10 +1690,15 @@ a.cd-val:hover {
 
 /* Contact Terminal Form */
 .contact-form-wrap {
+  position: relative;
   background: var(--bg-panel);
+  /* Concrete shuttering board pattern */
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(122, 130, 138, 0.03) 27px, rgba(122, 130, 138, 0.03) 28px);
   border: 1px solid var(--slate-grey);
   padding: 2.5rem;
-  box-shadow: 5px 5px 0 #0d0f11;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.06), inset -1px -1px 0 rgba(0, 0, 0, 0.6), 5px 5px 0 #0d0f11;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
 }
 
 .terminal-bar {
@@ -1572,6 +1880,12 @@ a.cd-val:hover {
 }
 
 /* ── Responsive Architecture ── */
+@media (max-width: 1180px) {
+  .megalith-elevation-ruler {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .about-grid {
     grid-template-columns: 1fr;
